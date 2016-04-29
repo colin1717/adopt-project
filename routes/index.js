@@ -37,4 +37,13 @@ router.get('/pets', checkLoggedIn, function(req, res, next){
   res.send('/pets');
 })
 
+router.post('/login', passport.authenticate('local'), function(req, res, next){
+  res.redirect('/pets');
+})
+
+router.get('/logout', function(req, res, next) {
+  req.logout();
+  res.redirect('/');
+});
+
 module.exports = router;
