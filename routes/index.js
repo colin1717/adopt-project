@@ -8,6 +8,11 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'CatDog' });
 });
 
+/* GET pets page. */
+router.get('/pets', function(req, res, next) {
+  res.render('pets', { title: 'Adoptable Pets' });
+});
+
 router.post('/signup', function(req, res, next) {
   var user = new User({ username: req.body.username });
   User.register(user, req.body.password, function(error) {
