@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <section id="main">
+    <p>Welcome to <%= title %></p>
+
+    <div class="dog"></div>
+
+    <button class="hot-button">Hot</button>
+    <button class="not-hot-button">Meh</button>
+    <nav>
+    <ul>
+      <li><a id="display-liked">Dogs you've liked</a></li>
+    </ul>
+  </nav>
+</section>
+<section id="liked">
+   <nav><a id="exit">X</a></nav>
+   <h2>Dogs you like:</h2><br>
+   <div id="liked-dogs"></div>
+</section>
+    <script src="https://code.jquery.com/jquery-1.12.3.min.js" integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ=" crossorigin="anonymous"></script>
+    <script src="javascripts/script.js" type="text/javascript"></script>
+  </body>
+</html>

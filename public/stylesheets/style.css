@@ -6,3 +6,72 @@ body {
 a {
   color: #00B7FF;
 }
+ul {
+  list-style: none;
+  margin-left: -40px;
+}
+
+
+.dog img {
+  height: 150px;
+}
+
+.dog {
+  padding-bottom: 20px;
+}
+
+#liked{
+
+  display: none;
+  min-height: 800px;
+  background-color: #4dde91;
+  color: white;
+  padding-top: 10px
+}
+
+#liked a{
+  color:white;
+  font-size: 16px;
+}
+
+#liked ul {
+  list-style: none;
+  font-size: 16px;
+}
+
+#main{
+
+  display: visible;
+}
+
+button {
+  background-color: red;
+  color:white;
+  border: none;
+  border-radius: 20px
+  height:100px;
+  font-size: 16px;
+  padding: 10px;
+}
+
+button:hover {
+  background-color: red;
+  opacity: .5;
+  color:white;
+  border: none;
+  border-radius: 20px
+  height:100px;
+  font-size: 16px;
+  padding: 10px;
+}
+.liked-dog-name img{
+  height: 150px;
+}
+.liked-dog-name ul {
+  list-style: none;
+}
+#exit {
+  position: absolute;
+  margin-left: 43%;
+  font-size: 200px;
+}
