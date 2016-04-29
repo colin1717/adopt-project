@@ -15,6 +15,9 @@ var LocalStrategy = require('passport-local');
 var User = require('./models/user');
 passport.use(User.createStrategy());
 
+var passportConfig = require('./config/passport-config');
+var passport = require('./config/passport-config')();
+
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
@@ -37,6 +40,9 @@ app.use(session({
   resave: false,
   saveUninitialized: false
 }));
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use('/', routes);
 app.use('/users', users);
