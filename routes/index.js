@@ -34,7 +34,7 @@ function checkLoggedIn(req, res, next){
 }
 
 router.get('/pets', checkLoggedIn, function(req, res, next){
-  res.send('/pets');
+  res.render('pets');
 })
 
 router.post('/login', passport.authenticate('local'), function(req, res, next){
