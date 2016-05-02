@@ -1,7 +1,11 @@
 $(document).ready(function(){
 
  $("#testButton").click(function(e) {
-  var url = 'http://api.petfinder.com/pet.getRandom?key=7fe69d8a1ef29360d4fcf36d90a09254f554a394&shelterid=KY305&output=full&format=json';
+  // the following URL returns all animals (cats, dogs, etc)
+  /*var url = 'http://api.petfinder.com/pet.getRandom?key=7fe69d8a1ef29360d4fcf36d90a09254f554a394&output=full&format=json';*/
+
+  //The following url just gets dogs
+  var url = 'http://api.petfinder.com/pet.getRandom?key=7fe69d8a1ef29360d4fcf36d90a09254f554a394&shelterid=KY305&output=full&format=json';/**/
   $.ajax({
         type : 'GET',
         data : {},
