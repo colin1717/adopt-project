@@ -1,15 +1,29 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Temp Title</title>
+    <title>View Pets Page</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-1.12.3.min.js" integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ=" crossorigin="anonymous"></script>
   </head>
   <body>
-    <h1>Temp Title</h1>
+    <h1>Welcome to the Pet Viewer</h1>
     <section id="main">
-    <p>Welcome to Tempt Title</p>
+    <p>Welcome to <%= title%></p>
 
-    <div class="dog"></div>
+    <div class="dog">
+      <img src="" alt="">
+      <p id="petNameInfo"></p>
+    </div>
+    <p id="petNameInfo"></p>
+    <p id="petfinderInfo"></p>
+
+
+    </div>
+
+    <!-- //testing button -->
+    <button id="testButton">Test</button>
 
     <button class="hot-button">Hot</button>
     <button class="not-hot-button">Meh</button>
@@ -24,9 +38,8 @@
    <h2>Dogs you like:</h2><br>
    <div id="liked-dogs"></div>
 </section>
-    <script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
-    <script src="javascripts/script.js" type="text/javascript"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" type="text/javascript"></script>
-<script src="http://s3.amazonaws.com/filestore.rescuegroups.org/scripts/noncvs/jquery-json.js" type="text/javascript"></script>
+
+  <script src='/javascripts/script.js'></script>
   </body>
 </html>
+
