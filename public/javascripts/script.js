@@ -20,6 +20,14 @@ $(document).ready(function(){
             console.log(petfinder.pet.description['$t']);
             console.log(petfinder.pet.id['$t']);
 
+            var petImageHolder = petfinder.pet.media.photos.photo[0];
+            var petImageURL = (petImageHolder['$t']);
+            var favorite = $('.dog');
+
+            favorite.find('img').attr('src', petImageURL);
+
+            $('#petNameInfo').html(petfinder.pet.name['$t']);
+
 
             var infoHTML = '<ul>';
             infoHTML += '<li>';
