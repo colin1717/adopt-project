@@ -1,92 +1,56 @@
-// $(document).ready(function(){
-//   var dogId;
 
-//   function getNextDog() {
-//     $.ajax({
-//       url: '/pets',
-//       method: 'GET',
-//       dataType: 'json',
-//       success: function(dogData) {
-//         if (dogData.status) {
-//           $('.dog').html('');
-//           alert(dogData.status);
-//         } else {
-//           dogId = dogData._id;
+$(document).ready(function(){
 
-//           $('.dog').html(
-//             '<img src="' + dogData.photo + '"/>' +
-//             '<div class="dog-name">' + dogData.name + "<br> " + dogData.age + ' years </div>'
-//           );
-//         }
-//       }
-//     });
-//   };
+ $("#testButton").click(function(e) {
+  // the following URL returns all animals (cats, dogs, etc)
+  /*var url = 'http://api.petfinder.com/pet.getRandom?key=7fe69d8a1ef29360d4fcf36d90a09254f554a394&output=full&format=json';*/
 
-//   getNextDog();
+  //The following url just gets dogs
+  var url = 'http://api.petfinder.com/pet.getRandom?key=7fe69d8a1ef29360d4fcf36d90a09254f554a394&shelterid=KY305&output=full&format=json';/**/
+  $.ajax({
+        type : 'GET',
+        data : {},
+        url : url+'&callback=?' ,
+        dataType: 'jsonp',
+        success : function(data) {
+            // stores result
+            var result = '';
+            // set a variable of petfinder equal to the data passed into the success function
+            var petfinder = data.petfinder;
 
-//   $('.hot-button').click(function(event){
-//     var liked = $(event.currentTarget).hasClass('hot-button');
+//-----------All of the following in the console.log() get the proper data for the pets from the API-----------------------
+            console.log(petfinder.pet.name['$t']);
+            console.log(petfinder.pet.animal['$t']);
+            console.log(petfinder.pet.sex['$t']);
+            console.log(petfinder.pet.age['$t']);
+            console.log(petfinder.pet.description['$t']);
+            console.log(petfinder.pet.id['$t']);
+
+//---------Sets the p with the id of petNameInfo's html equal to the pet name-----------------------------------------------
+             $('#petNameInfo').html(petfinder.pet.name['$t']);
 
 
+/*The petImageHolder, gets the pet image in the object[0] of the array, petImageURL, takes
+the value of the url stored in the text of petImageHolder and places it into a url. Then, I've declared a variable of favorite and set it equal to the div with the class of dog. From
+there, we're doing a find an image in the favorite class and set the source attribute equal to  the url we've placed in the petImageURL varialbe*/
+            var petImageHolder = petfinder.pet.media.photos.photo[0];
+            var petImageURL = (petImageHolder['$t']);
+            var favorite = $('.dog');
+            favorite.find('img').attr('src', petImageURL);
 
-var thing = {"apikey":"***","objectType":"animals","objectAction":"publicSearch","search":{"calcFoundRows":"Yes","resultStart":0,"resultLimit":0,"fields":["animalName"],"filters":[{"fieldName":"animalStatus","operation":"equals","criteria":"Adopted"},{"fieldName":"animalOrgID","operation":"equals","criteria":"****"}]}};
-var encoded = JSON.stringify(thing);
+//-------------------------END OF IMAGE PLACEMENT-----------------------------------------------------------------------
 
-$.ajax({
-  url: "https://api.rescuegroups.org/http/json/?data=" + encoded,
-  dataType: "jsonp",
-  success: function(data) {
-        console.log(data.foundRows);
-  },
-  error: function(xhr, status, error) {
-    console.log('error');
-  }
+
+        },
+        error : function(request,error)
+        {
+            alert("Request: "+JSON.stringify(request));
+        }
+      });
+     });
 });
 
 
 
-// $.ajax({
-//       url: '/pets/' + dogId,
-//       method: 'PUT',
-//       dataType: 'json',
-//       data: {liked: liked},
-//       success: function(dogData) {
-//         getNextDog();
-//         $('#liked-dogs').append('<div class="liked-dog-name"><img src="' + dogData.photo + '"/>' + "<br> " + dogData.name + "<br> " + dogData.age + ' years </div><br>' );
-//       }
-//     });
-//   });
-
-//   $('.not-hot-button').click(function(event){
-//     var notliked = $(event.currentTarget).hasClass('not-hot-button');
 
 
-// $.ajax({
-//       url: '/pets/' + dogId,
-//       method: 'PUT',
-//       dataType: 'json',
-//       data: {liked: notliked},
-//       success: function(dogData) {
-//         getNextDog();
-//       }
-//     });
-//   });
-//   $('#exit').click(function(event){
-//     navigateToContentSection($('#main'));
-//   });
-// $('#display-liked').click(function(event){
-//     navigateToContentSection($('#liked'));
-//   });
-// });
-
-// var contentSectionList = [$('#main'), $('#liked')];
-
-// function navigateToContentSection(sectionToDisplay){
-//   $.each(contentSectionList, function(i, contentSection){
-//     if(contentSection.css('display') != 'none'){
-//       contentSection.hide('slow', function(){
-//         sectionToDisplay.show('slow');
-//       });
-//     }
-//   });
-// }
