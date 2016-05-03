@@ -1,0 +1,266 @@
+@import url(https://fonts.googleapis.com/css?family=Oswald);
+@import url(https://fonts.googleapis.com/css?family=News+Cycle);
+
+body {
+  font-family: 'News Cycle', sans-serif;
+}
+h2{
+  font-family: 'Oswald', sans-serif;
+  font-size: 44px;
+  color:white;
+  text-transform: uppercase;
+}
+#petNameInfo {
+  font-family: 'Oswald', sans-serif;
+  font-size: 24px;
+  display: inline;
+  line-height: 30px;
+  text-transform: uppercase;
+}
+#pet-name {
+  font-family: 'Oswald', sans-serif;
+  font-size: 24px;
+  display: inline;
+  line-height: 30px;
+  text-transform: uppercase;
+  margin-left: 2%;
+}
+#petGender {
+  display: inline;
+}
+#pet-gender {
+  display: inline;
+}
+#display-liked {
+  display: inline;
+  text-align: right;
+}
+#petAge {
+  display: inline;
+}
+#pet-age {
+  display: inline;
+}
+#pet-description {
+  width: 580px;
+  background-color: #FFF87F;
+  height: 300px;
+  display: inline;
+  position: absolute;
+  margin-top: 1.5%;
+  padding: 20px;
+}
+#nextButton {
+margin-left: 56%;
+position: absolute;
+margin-top: -1%;
+padding-bottom: 20px;
+}
+#nextButton:hover {
+margin-left: 56%;
+position: absolute;
+margin-top: -1%;
+padding-bottom: 20px;
+opacity:.6;
+}
+#moreInfo{
+  font-size: 18px;
+  text-decoration:underline;
+  margin-left: 33%;
+  text-align: left;
+  margin-bottom: 25px;
+}
+#moreInfo:hover{
+  background: #FFF87F;
+}
+#menu{
+  padding-bottom: 20px;
+  margin-right: 5%;
+  margin-top: 5%;
+}
+#menu li{
+  list-style: none;
+  text-align: right;
+}
+#menu li:hover{
+  list-style: none;
+  text-align: right;
+  text-decoration: underline;
+}
+.pet0 img {
+  display: block;
+  height: 200px;
+  padding: 20px 0px 10px 0px;
+  margin-left: 0;
+  min-width:200px;
+
+}
+.pet0{
+  margin-top: 5%;
+  margin-left: -.5%;
+}
+.pet-info img {
+  display: inline;
+  height: 200px;
+  padding: 20px 20px 10px 20px;
+  margin-left: 0;
+  min-width:200px;
+}
+#info-header {
+  display: block;
+}
+#likeButton {
+  background-color: black;
+  border-radius: 80px;
+  height: 60px;
+  width: 60px;
+  margin-left: 46%;
+  margin-top: 2%;
+}
+#likeButton:hover {
+  opacity:.6;
+}
+#likeButton2 {
+  background-color: black;
+  border-radius: 80px;
+  height: 60px;
+  width: 60px;
+  margin-left: 18%;
+  margin-top: 5%;
+}
+#likeButton2:hover {
+  opacity:.6;
+}
+.petImages {
+  margin-left: 35%;
+}
+.pet-info{
+margin-left: 6%;
+}
+#available-pets {
+display: visible;
+}
+#contactButton {
+  position: absolute;
+  display: inline;
+  margin-top: 13%;
+  margin-left: 75%;
+  padding-bottom: 30px;
+}
+#contactButton p{
+  margin-left: -40px;
+  margin-top: -40px;
+  display: inline;
+  padding-right: 20px;
+}
+#backPetsButton {
+  display: inline-block;
+  margin-left: 75%;
+  margin-top: -15%;
+  padding-top: 30px;
+}
+#backPetsButton p{
+  margin-top: -20px;
+  display: inline;
+  padding-right: 20px;
+}
+#more-info{
+  display: none;
+}
+#contact{
+  display: none;
+  min-height: 80%;
+
+}
+#contact-background{
+  background-color: #C2F2EF;
+  width: 85%;
+  height: 80%;
+  margin-left: 5%;
+  padding: 30px;
+}
+#contact-name{
+  background-color: white;
+  opacity: .6;
+  padding: 10px;
+  border-style: none;
+  width: 450px;
+  height: 15px;
+}
+#contact-phone{
+  background-color: white;
+  opacity: .6;
+  padding: 10px;
+  border-style: none;
+  width: 450px;
+  height: 15px;
+}
+#contact-email{
+  background-color: white;
+  opacity: .6;
+  padding: 10px;
+  border-style: none;
+  width: 925px;
+  height: 15px;
+  margin-top: 2%;
+}
+#contact-message{
+  background-color: white;
+  opacity: .6;
+  border-style: none;
+  width: 939px;
+  height: 200px;
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+#contactSubmit{
+  display: inline;
+  margin-top: 30px;
+  padding-top: 40px;
+  margin-left: 90%;
+}
+#contactSubmit:hover{
+ opacity:.6;
+}
+#contactSubmit p{
+  margin-left: -40px;
+  margin-top: -30px;
+  display: inline;
+  padding-right: 20px;
+}
+#liked-pets{
+  display: none;
+  padding: 20px;
+}
+#liked-pets td{
+    padding: 40px;
+}
+.liked-pet-name {
+  font-family: 'Oswald', sans-serif;
+  font-size: 24px;
+  display: inline;
+  line-height: 30px;
+  text-transform: uppercase;
+  margin-left: 2%;
+}
+.liked-pet-gender {
+  display: inline;
+}
+.liked-pet-age {
+  display: inline;
+}
+.liked-pet-description {
+  background-color: #FFF87F;
+  height: 300px;
+  display: inline;
+  position: absolute;
+  margin-top: 1.5%;
+  text-align: justify;
+}
+.liked-pet-info img {
+  display: inline;
+  height: 200px;
+  padding: 20px 20px 10px 20px;
+  min-width:200px;
+  margin-left: 10%;
+}

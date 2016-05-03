@@ -40,9 +40,9 @@ function populateInfo(petfinder){
   $('#petId').html(petfinder.pet.id['$t']);
   $('#petType').html(petfinder.pet.animal['$t']);
 
-  var petImageHolder = petfinder.pet.media.photos.photo[0];
+  var petImageHolder = petfinder.pet.media.photos.photo[2];
   var petImageURL = (petImageHolder['$t']);
-  var petImage = $('.pet');
+  var petImage = $('.pet0');
   petImage.find('img').attr('src', petImageURL);
 }
 
