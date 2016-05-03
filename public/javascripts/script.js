@@ -9,7 +9,7 @@ $('#nextButton').click(function(){
 
 
 function getNextPet(){
-  var url = 'http://api.petfinder.com/pet.getRandom?key=7fe69d8a1ef29360d4fcf36d90a09254f554a394&shelterid=KY305&output=full&format=json';
+  var url = 'http://api.petfinder.com/pet.getRandom?key=7fe69d8a1ef29360d4fcf36d90a09254f554a394&output=full&format=json';
 
   $.ajax({
     url: url+'&callback=?',
