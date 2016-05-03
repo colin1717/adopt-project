@@ -44,7 +44,6 @@ function populateInfo(petfinder){
   var petImage = $('.pet0');
   petImage.find('img').attr('src', petImageURL);
 
-  //get pet breed info
 
 }
 
