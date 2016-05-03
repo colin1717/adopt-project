@@ -48,6 +48,14 @@ $(document).ready(function(){
 //---------Sets the element with the id of petAge's html equal to the pet age-----------------------------------------------
              $('#petAge').html(petfinder.pet.age['$t']);
 
+//---------Sets the element with the id of petDescription's html equal to the pet description-----------------------------------------------
+             $('#petDescription').html(petfinder.pet.description['$t']);
+
+//---------Sets the element with the id of the petID html equal to the pet id-----------------------------------------------
+             $('#petId').html(petfinder.pet.id['$t']);
+
+//---------Sets an id on type of animal so we can use that later for searches-----------------------------------------------
+            $('#petType').html(petfinder.pet.animal['$t']);
 
 /*The petImageHolder, gets the pet image in the object[0] of the array, petImageURL, takes
 the value of the url stored in the text of petImageHolder and places it into a url. Then, I've declared a variable of favorite and set it equal to the div with the class of dog. From
