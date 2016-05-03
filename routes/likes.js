@@ -36,7 +36,7 @@ function checkLoggedIn(req, res, next){
 
 /* POST LIKE */
 /* update when ajax call passes in the petId  */
-router.post('/', function(req, res, next) {
+router.post('/', checkLoggedIn, function(req, res, next) {
   var userId = req.user._id;
   var petId = req.body.petId;
 
