@@ -4,7 +4,7 @@ var Like = require('../models/like');
 
 
 /* GET likes */
-router.get('/', function(req, res, next){
+router.get('/', checkLoggedIn, function(req, res, next){
   Like.find({}, function(err, likes){
     if (err) {
       res.status(500).send();
@@ -14,9 +14,24 @@ router.get('/', function(req, res, next){
   })
 })
 
+function checkLoggedIn(req, res, next){
+  if (req.isAuthenticated()){
+    next();
+  } else {
+    res.redirect('/');
+  }
+}
+
 /* POST LIKE */
-router.post('/', function(req, res, next) {
-  var like = new Like(req.body);
+router.post('/', checkLoggedIn, function(req, res, next) {
+  var userId = req.user._id;
+  var petId = 'blahblah';
+
+  var like = new Like({
+    userId: userId,
+    petId: petId
+  });
+
   like.save(function(err) {
     if (err) {
       res.status(500).send();
