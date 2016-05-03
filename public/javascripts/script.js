@@ -26,6 +26,8 @@ function getNextPet(){
   .done(function(data, textStatus, jqXHR){
     petfinder = data.petfinder;
     populateInfo(petfinder);
+    //test console.log for info
+    console.log(petfinder);
   })
   .fail(function(data, textStatus, jqXHR){
     console.log('getNextPet failed.  Error: ' + textStatus);
@@ -40,6 +42,18 @@ function populateInfo(petfinder){
   $('#petId').html(petfinder.pet.id['$t']);
   $('#petType').html(petfinder.pet.animal['$t']);
 
+  //Adoption Contact Information
+  $('#petAddress1').html(petfinder.pet.contact.address1['$t']);
+  $('#petAddress2').html(petfinder.pet.contact.address2['$t']);
+  $('#petCity').html(petfinder.pet.contact.city['$t']);
+  $('#petEmail').html(petfinder.pet.contact.email["$t"]);
+  $('#petFax').html(petfinder.pet.contact.fax["$t"]);
+  $('#petPhone').html(petfinder.pet.contact.phone["$t"]);
+  $('#petState').html(petfinder.pet.contact.state["$t"]);
+  $('#petZip').html(petfinder.pet.contact.zip["$t"]);
+
+
+  //Pet Images
   var petImageHolder = petfinder.pet.media.photos.photo[0];
   var petImageURL = (petImageHolder['$t']);
   var petImage = $('.pet');
