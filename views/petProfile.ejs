@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title%></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-1.12.3.min.js" integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ=" crossorigin="anonymous"></script>
+  </head>
+  <body>
+
+    <h1><%= title%></h1>
+
+    <nav>
+      <ul>
+        <li><a id="display-liked">Pets you've liked</a></li>
+      </ul>
+      <ul>
+        <li><a href='/pets' id="all-pets-page">Back to View All Pets</a></li>
+      </ul>
+    </nav>
+
+    <section id="main">
+
+    <div class="petImages">
+    <!-- This div contains the pet image. Please note img src is populated by by the JavaScript dynamically -->
+    <div class="pet">
+      <p id="petNameInfo"></p>
+      <p id="petGender"></p>
+      <p id="petAge"></p>
+      <img src="" alt="">
+    </div>
+    <div class="petDescrip">
+      <p id="petDescription"></p>
+    </div>
+    </div>
+
+
+
+    </div>
+
+    <!-- //go to next pet button -->
+    <button id="nextButton">Next</button>
+
+
+  </section>
+
+  <script src='/javascripts/script.js'></script>
+  </body>
+</html>
+
