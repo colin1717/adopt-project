@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>View Pets Page</title>
+    <title><%= title%></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
@@ -16,7 +16,7 @@
         <li><a id="display-liked">Pets you've liked</a></li>
       </ul>
       <ul>
-        <li><a href='petProfile' id="petProfile-page">View Pet Profile</a></li>
+        <li><a href='/pets' id="all-pets-page">Back to View All Pets</a></li>
       </ul>
     </nav>
 
@@ -40,15 +40,7 @@
     <button id="nextButton">Next</button>
 
 
-
   </section>
-
-<!--The following code was from the code pulled in from Corgi Harmony and is not currently in use inside of the script.js-->
-<!-- <section id="liked">
-   <nav><a id="exit">X</a></nav>
-   <h2>Dogs you like:</h2><br>
-   <div id="liked-dogs"></div>
-</section> -->
 
   <script src='/javascripts/script.js'></script>
   </body>

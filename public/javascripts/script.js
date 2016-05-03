@@ -56,7 +56,7 @@ there, we're doing a find an image in the favorite class and set the source attr
 
             var petImageHolder = petfinder.pet.media.photos.photo[0];
             var petImageURL = (petImageHolder['$t']);
-            var petImage = $('.pet0');
+            var petImage = $('.pet');
             petImage.find('img').attr('src', petImageURL);
 
 
