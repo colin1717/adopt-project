@@ -31,6 +31,10 @@ function populateInfo(petfinder){
   $('#petNameInfo').html(petfinder.pet.name['$t']);
   $('#petGender').html(petfinder.pet.sex['$t']);
   $('#petAge').html(petfinder.pet.age['$t']);
+  $('#petDescription').html(petfinder.pet.description['$t']);
+  $('#petId').html(petfinder.pet.id['$t']);
+  $('#petType').html(petfinder.pet.animal['$t']);
+
   var petImageHolder = petfinder.pet.media.photos.photo[0];
   var petImageURL = (petImageHolder['$t']);
   var petImage = $('.pet0');
