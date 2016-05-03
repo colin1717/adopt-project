@@ -8,36 +8,55 @@
     <script src="https://code.jquery.com/jquery-1.12.3.min.js" integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ=" crossorigin="anonymous"></script>
   </head>
   <body>
-    <h1>Welcome to the Pet Viewer</h1>
-    <section id="main">
-    <p>Welcome to <%= title%></p>
 
-    <div class="dog">
-      <img src="" alt="">
-      <p id="petNameInfo"></p>
-    </div>
-    <p id="petNameInfo"></p>
-    <p id="petfinderInfo"></p>
+    <h1><%= title%></h1>
 
-
-    </div>
-
-    <!-- //testing button -->
-    <button id="testButton">Test</button>
-
-    <button class="hot-button">Hot</button>
-    <button class="not-hot-button">Meh</button>
     <nav>
-    <ul>
-      <li><a id="display-liked">Dogs you've liked</a></li>
-    </ul>
-  </nav>
-</section>
-<section id="liked">
+      <ul>
+        <li><a id="display-liked">Pets you've liked</a></li>
+      </ul>
+    </nav>
+
+    <section id="main">
+
+    <div class="petImages">
+    <!-- This div contains the pet image. Please note img src is populated by by the JavaScript dynamically -->
+    <div class="pet0">
+      <p id="petNameInfo"></p>
+      <p id="petGender"></p>
+      <p id="petAge"></p>
+      <img src="" alt="">
+    </div>
+    <div class="pet1">
+      <p id="petNameInfo"></p>
+      <p id="petGender"></p>
+      <p id="petAge"></p>
+      <img src="" alt="">
+    </div>
+    <div class="pet2">
+      <p id="petNameInfo"></p>
+      <p id="petGender"></p>
+      <p id="petAge"></p>
+      <img src="" alt="">
+    </div>
+    </div>
+
+
+
+    </div>
+
+    <!-- //go to next pet button -->
+    <button id="nextButton">Next</button>
+
+
+  </section>
+
+<!--The following code was from the code pulled in from Corgi Harmony and is not currently in use inside of the script.js-->
+<!-- <section id="liked">
    <nav><a id="exit">X</a></nav>
    <h2>Dogs you like:</h2><br>
    <div id="liked-dogs"></div>
-</section>
+</section> -->
 
   <script src='/javascripts/script.js'></script>
   </body>
