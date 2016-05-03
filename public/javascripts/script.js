@@ -33,8 +33,13 @@ function getNextPet(){
     /*var option = petfinder.pet.options.option[i]['$t'];*/
     var option = petfinder.pet.options.option;
     for (var i = option.length - 1; i >= 0; i--) {
+      var optionLists = $('<li></li>');
       var optionArrayObject = option[i];
+      var buildOptions = optionArrayObject.appendTo(optionLists);
+
+      console.log(buildOptions);
       console.log(optionArrayObject);
+
     }
 
 
