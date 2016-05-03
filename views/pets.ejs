@@ -1,22 +1,20 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>View Pets Page</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <title>Take Me Home</title>
+    <link rel='stylesheet' href='/stylesheets/style2.css' />
+
 
     <script src="https://code.jquery.com/jquery-1.12.3.min.js" integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ=" crossorigin="anonymous"></script>
   </head>
   <body>
-
-    <h1><%= title%></h1>
-
-    <nav>
+    <nav id="menu">
       <ul>
-        <li><a id="display-liked">Pets you've liked</a></li>
+        <li><a id="display-liked">My Pets</a></li>
       </ul>
     </nav>
-
+    <div id="available-pets">
+    <div id="nextButton"><img src="../images/black-arrow.png" height="20px"></div>
     <section id="main">
 
     <div class="petImages">
@@ -25,8 +23,9 @@
       <p id="petNameInfo"></p>
       <p id="petGender"></p>
       <p id="petAge"></p>
-      <img src="" alt="">
+      <img src="" alt="" align="center">
     </div>
+    <a id="moreInfo">More Info</a>
     <div class="pet1">
       <p id="petNameInfo"></p>
       <p id="petGender"></p>
@@ -45,9 +44,14 @@
 
     </div>
 
-    <!-- //go to next pet button -->
-    <button id="nextButton">Next</button>
+    <!-- //like pet button -->
+    <div id="likeButton"></div>
 
+    </div>
+    <div id="more-info">
+
+
+    </div>
 
   </section>
 

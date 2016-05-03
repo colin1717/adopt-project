@@ -1,0 +1,86 @@
+@import url(https://fonts.googleapis.com/css?family=Oswald);
+@import url(https://fonts.googleapis.com/css?family=News+Cycle);
+
+body {
+  font-family: 'News Cycle', sans-serif;
+}
+#petNameInfo {
+  font-family: 'Oswald', sans-serif;
+  font-size: 24px;
+  display: inline;
+  line-height: 30px;
+  text-transform: uppercase;
+}
+#petGender {
+  display: inline;
+}
+#display-liked {
+  display: inline;
+  text-align: right;
+}
+#petAge {
+  display: inline;
+}
+#nextButton {
+margin-left: 56%;
+position: absolute;
+margin-top: -1%;
+padding-bottom: 20px;
+}
+#nextButton:hover {
+margin-left: 56%;
+position: absolute;
+margin-top: -1%;
+padding-bottom: 20px;
+opacity:.6;
+}
+#moreInfo{
+  font-size: 18px;
+  text-decoration:underline;
+  margin-left: 33%;
+  text-align: left;
+  margin-bottom: 25px;
+}
+#moreInfo:hover{
+  background: #FFF87F;
+}
+#menu{
+  padding-bottom: 20px;
+  margin-right: 5%;
+  margin-top: 5%;
+}
+#menu li{
+  list-style: none;
+  text-align: right;
+}
+#menu li:hover{
+  list-style: none;
+  text-align: right;
+  text-decoration: underline;
+}
+.pet0 img {
+  display: block;
+  height: 200px;
+  padding: 20px 0px 10px 0px;
+  margin-left: 0;
+  min-width:200px;
+
+}
+.pet0{
+  margin-top: 5%;
+  margin-left: -.5%;
+}
+#likeButton {
+  background-color: black;
+  border-radius: 80px;
+  height: 60px;
+  width: 60px;
+  margin-left: 46%;
+  margin-top: 2%;
+}
+#likeButton:hover {
+  opacity:.6;
+}
+.petImages {
+  margin-left: 35%;
+}
