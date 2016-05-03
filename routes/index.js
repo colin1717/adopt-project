@@ -37,6 +37,10 @@ router.get('/pets', checkLoggedIn, function(req, res, next){
   res.render('pets',{title: 'View Available Pets'});
 })
 
+router.get('/petProfile', checkLoggedIn, function(req, res, next){
+  res.render('petProfile',{title: 'Take Me Home'});
+})
+
 router.post('/login', passport.authenticate('local'), function(req, res, next){
   res.redirect('/pets');
 })
