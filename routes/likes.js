@@ -4,7 +4,7 @@ var Like = require('../models/like');
 
 
 /* GET likes */
-router.get('/', function(req, res, next){
+router.get('/', checkLoggedIn, function(req, res, next){
   Like.find({}, function(err, likes){
     if (err) {
       res.status(500).send();
@@ -14,9 +14,38 @@ router.get('/', function(req, res, next){
   })
 })
 
+/* Get user's likes  */
+router.get('/user', checkLoggedIn, function(req, res, next){
+  var userId = req.user._id;
+  Like.find({ userId: userId }, function(err, likes){
+    if (err){
+      console.log("GET likes/user didnt work.  Error: " + err);
+    } else {
+      res.send(likes);
+    }
+  })
+})
+
+function checkLoggedIn(req, res, next){
+  if (req.isAuthenticated()){
+    next();
+  } else {
+    res.redirect('/');
+  }
+}
+
 /* POST LIKE */
+/* update when ajax call passes in the petId  */
 router.post('/', function(req, res, next) {
+  // var userId = req.user._id;
+  // var petId = 'blahblah';
   var like = new Like(req.body);
+
+  // var like = new Like({
+  //   userId: userId,
+  //   petId: petId
+  // });
+
   like.save(function(err) {
     if (err) {
       res.status(500).send();
