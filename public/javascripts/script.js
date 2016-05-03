@@ -22,7 +22,7 @@ function getNextPet(){
     populateInfo(petfinder);
     console.log(petfinder);
     //using this to test what the path is for objects
-    console.log(petfinder.pet.breeds.breed['$t']);
+    console.log(petfinder.pet.mix['$t']);
   })
   .fail(function(data, textStatus, jqXHR){
     console.log('getNextPet failed.  Error: ' + textStatus);
@@ -37,6 +37,7 @@ function populateInfo(petfinder){
   $('#petId').html(petfinder.pet.id['$t']);
   $('#petType').html(petfinder.pet.animal['$t']);
   $('#petBreed').html(petfinder.pet.animal['$t']);
+  $('#petMix').html(petfinder.pet.mix['$t']);
 
   var petImageHolder = petfinder.pet.media.photos.photo[0];
   var petImageURL = (petImageHolder['$t']);
