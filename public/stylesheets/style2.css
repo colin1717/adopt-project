@@ -11,7 +11,18 @@ body {
   line-height: 30px;
   text-transform: uppercase;
 }
+#pet-name {
+  font-family: 'Oswald', sans-serif;
+  font-size: 24px;
+  display: inline;
+  line-height: 30px;
+  text-transform: uppercase;
+  margin-left: 2%;
+}
 #petGender {
+  display: inline;
+}
+#pet-gender {
   display: inline;
 }
 #display-liked {
@@ -20,6 +31,18 @@ body {
 }
 #petAge {
   display: inline;
+}
+#pet-age {
+  display: inline;
+}
+#pet-description {
+  width: 580px;
+  background-color: #FFF87F;
+  height: 300px;
+  display: inline;
+  position: absolute;
+  margin-top: 1.5%;
+  padding: 20px;
 }
 #nextButton {
 margin-left: 56%;
@@ -70,6 +93,16 @@ opacity:.6;
   margin-top: 5%;
   margin-left: -.5%;
 }
+.pet-info img {
+  display: inline;
+  height: 200px;
+  padding: 20px 20px 10px 20px;
+  margin-left: 0;
+  min-width:200px;
+}
+#info-header {
+  display: block;
+}
 #likeButton {
   background-color: black;
   border-radius: 80px;
@@ -81,6 +114,50 @@ opacity:.6;
 #likeButton:hover {
   opacity:.6;
 }
+#likeButton2 {
+  background-color: black;
+  border-radius: 80px;
+  height: 60px;
+  width: 60px;
+  margin-left: 18%;
+  margin-top: 5%;
+}
+#likeButton2:hover {
+  opacity:.6;
+}
 .petImages {
   margin-left: 35%;
+}
+.pet-info{
+margin-left: 6%;
+}
+#available-pets {
+
+}
+#contactButton {
+  position: absolute;
+  display: inline;
+  margin-top: 13%;
+  margin-left: 75%;
+  padding-bottom: 30px;
+}
+#contactButton p{
+  margin-left: -40px;
+  margin-top: -40px;
+  display: inline;
+  padding-right: 20px;
+}
+#backPetsButton {
+  display: inline-block;
+  margin-left: 75%;
+  margin-top: -15%;
+  padding-top: 30px;
+}
+#backPetsButton p{
+  margin-top: -20px;
+  display: inline;
+  padding-right: 20px;
+}
+#more-info{
+  display: none;
 }
