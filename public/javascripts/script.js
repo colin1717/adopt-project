@@ -27,7 +27,20 @@ function getNextPet(){
     petfinder = data.petfinder;
     populateInfo(petfinder);
     //test console.log for info
-    console.log(petfinder);
+    console.dir(petfinder);
+
+    //The code below prints out the first option.. ie.. has shots
+    /*var option = petfinder.pet.options.option[i]['$t'];*/
+    var option = petfinder.pet.options.option;
+    for (var i = option.length - 1; i >= 0; i--) {
+      var optionArrayObject = option[i];
+      console.log(optionArrayObject);
+    }
+
+
+
+
+
   })
   .fail(function(data, textStatus, jqXHR){
     console.log('getNextPet failed.  Error: ' + textStatus);
