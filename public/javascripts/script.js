@@ -1,10 +1,16 @@
 
+var petfinder;
+
 $(document).ready(function(){
   getNextPet();
 })
 
 $('#nextButton').click(function(){
   getNextPet();
+})
+
+$('#likeButton').click(function(){
+  addNewLike();
 })
 
 
@@ -18,9 +24,8 @@ function getNextPet(){
     dataType: 'jsonp',
   })
   .done(function(data, textStatus, jqXHR){
-    var petfinder = data.petfinder;
+    petfinder = data.petfinder;
     populateInfo(petfinder);
-    console.log(petfinder);
   })
   .fail(function(data, textStatus, jqXHR){
     console.log('getNextPet failed.  Error: ' + textStatus);
@@ -41,3 +46,26 @@ function populateInfo(petfinder){
   petImage.find('img').attr('src', petImageURL);
 }
 
+function addNewLike(){
+  event.preventDefault();
+  var petId = petfinder.pet.id['$t'];
+
+  var newLike = {
+    petId: petId
+  }
+  console.log(newLike.petId);
+  console.log(newLike);
+
+  $.ajax({
+    url: '/likes',
+    method: 'POST',
+    dataType: 'json',
+    data: newLike
+  })
+  .done(function(data, textStatus, jqXHR){
+    console.log("ajax done: " + data);
+  })
+  .fail(function(data, textStatus, jqXHR){
+    console.log("Error posting like. Error: " + textStatus);
+  })
+}
