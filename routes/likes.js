@@ -37,19 +37,19 @@ function checkLoggedIn(req, res, next){
 /* POST LIKE */
 /* update when ajax call passes in the petId  */
 router.post('/', function(req, res, next) {
-  // var userId = req.user._id;
-  // var petId = 'blahblah';
-  var like = new Like(req.body);
+  var userId = req.user._id;
+  var petId = req.body.petId;
 
-  // var like = new Like({
-  //   userId: userId,
-  //   petId: petId
-  // });
+  var like = new Like({
+    userId: userId,
+    petId: petId
+  });
 
   like.save(function(err) {
     if (err) {
       res.status(500).send();
     } else {
+      console.log('this kinda worked');
       res.json(like);
     }
   });
