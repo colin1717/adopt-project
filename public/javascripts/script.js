@@ -32,12 +32,12 @@ $(document).ready(function(){
             var petfinder = data.petfinder;
 
 //-----------All of the following in the console.log()  are tests to ensure we're getting the proper data for the pets from the API-----------------------
-            /*console.log(petfinder.pet.name['$t']);
+            console.log(petfinder.pet.name['$t']);
             console.log(petfinder.pet.animal['$t']);
             console.log(petfinder.pet.sex['$t']);
             console.log(petfinder.pet.age['$t']);
             console.log(petfinder.pet.description['$t']);
-            console.log(petfinder.pet.id['$t']);*/
+            console.log(petfinder.pet.id['$t']);
 
 //---------Sets the element with the id of petNameInfo's html equal to the pet name-----------------------------------------------
              $('#petNameInfo').html(petfinder.pet.name['$t']);
@@ -73,6 +73,31 @@ there, we're doing a find an image in the favorite class and set the source attr
 });
 
 
+funtion getNextPet(){
+  var url = 'http://api.petfinder.com/pet.getRandom?key=7fe69d8a1ef29360d4fcf36d90a09254f554a394&shelterid=KY305&output=full&format=json';
 
+  $.ajax({
+    url: url+'&callback=?',
+    method: 'GET',
+    dataType: 'jsonp',
+  })
+  .done(function(data, textStatus, jqXHR){
+    petfinder = data.petefinder;
+    populateInfo(petfinder);
+    console.log(petfinder);
+  })
+  .fail(function(data, textStatus, jqXHR){
+    console.log('getNextPet failed.  Error: ' + textStatus);
+  })
+}
 
+function populateInfo(petfinder){
+  $('#petNameInfo').html(petfinder.pet.name['$t']);
+  $('#petGender').html(petfinder.pet.sex['$t']);
+  $('#petAge').html(petfinder.pet.age['$t']);
+  var petImageHolder = petfinder.pet.media.photos.photo[0];
+  var petImageURL = (petImageHolder['$t']);
+  var petImage = $('.pet0');
+  petImage.find('img').attr('src', petImageURL);
+}
 
