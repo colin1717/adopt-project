@@ -31,7 +31,7 @@ $('#contactButton').click(function(event){
   });
 
 function getNextPet(){
-  var url = 'http://api.petfinder.com/pet.getRandom?key=7fe69d8a1ef29360d4fcf36d90a09254f554a394&output=full&format=json';
+  var url = 'https://api.petfinder.com/pet.getRandom?key=7fe69d8a1ef29360d4fcf36d90a09254f554a394&output=full&format=json';
 
   $.ajax({
     url: url+'&callback=?',
