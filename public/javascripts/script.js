@@ -15,6 +15,7 @@ $('#likeButton').click(function(){
 
 $('#display-liked').click(function(event){
     navigateToContentSection($('#liked-pets'));
+    getUserLikes();
   });
 $('#moreInfo').click(function(event){
     navigateToContentSection($('#more-info'));
@@ -83,10 +84,22 @@ function populateInfo(petfinder){
 
 function addNewLike(){
   event.preventDefault();
-  var petId = petfinder.pet.id['$t'];
+  var petId = petfinder.pet.id.$t;
+  var petName = petfinder.pet.name.$t;
+  var petAge = petfinder.pet.age.$t;
+  var petGender = petfinder.pet.sex.$t;
+  var petPhoto = petfinder.pet.media.photos.photo[2].$t;
+  var shelterId = petfinder.pet.shelterId.$t;
+  var petDescription = petfinder.pet.description.$t;
 
   var newLike = {
-    petId: petId
+    petId: petId,
+    petName: petName,
+    petAge: petAge,
+    petGender: petGender,
+    petPhoto: petPhoto,
+    shelterId: shelterId,
+    petDescription: petDescription
   }
   console.log(newLike.petId);
   console.log(newLike);
@@ -115,4 +128,18 @@ function navigateToContentSection(sectionToDisplay){
       });
     }
   });
+}
+
+function getUserLikes(){
+  $.ajax({
+    url: '/likes/user',
+    method: 'GET',
+    dataType: 'json',
+  })
+  .done(function(data, textStatus, jqXHR){
+    console.log(data);
+  })
+  .fail(function(data, textStatus, jqXHR){
+    console.log("Error GETting likes/user.  Error: " + textStatus);
+  })
 }
