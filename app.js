@@ -5,6 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
+var nodemailer = require('nodemailer');
 
 var mongoose = require('mongoose');
 mongoose.connect(process.env.DB_CONN_CATDOG);
@@ -21,6 +22,8 @@ var passport = require('./config/passport-config')();
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var likes = require('./routes/likes');
+//trying to set up contact route
+var contact = require('./routes/contact');
 
 var app = express();
 
@@ -48,6 +51,8 @@ app.use(passport.session());
 app.use('/', routes);
 app.use('/users', users);
 app.use('/likes', likes);
+//telling express what to use for contact
+app.use('/contact', contact);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -79,6 +84,51 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
+
+//handles email to contact and the form
+app.post('/contact', function (req, res) {
+
+
+////////minimal transport////////////////////////////////////
+
+
+var transport = {
+    name: 'minimal',
+    version: '0.1.0',
+    send: function (mail, callback) {
+        var input = mail.message.createReadStream();
+        input.pipe(process.stdout);
+        input.on('end', function () {
+            callback(null, true);
+        });
+    }
+};
+
+var nodemailer = require('../lib/nodemailer');
+var transporter = nodemailer.createTransport(transport);
+
+//mail options
+var mailOpts = {
+      from: req.body.name + ' &lt;' + req.body.email + '&gt;', //grab form data from the request body object
+      to: 'me@gmail.com',
+      subject: 'Website contact form',
+      text: req.body.message
+  };
+
+transporter.sendMail(mailOpts, function(error,response){
+      //Email not sent
+      if (error) {
+          res.render('contact', { title: 'Meet Me', msg: 'Error occured, message not sent.', err: true, page: 'contact' })
+      }
+      //Yay!! Email sent
+      else {
+          res.render('contact', { title: 'Meet Me', msg: 'Message sent! Thank you.', err: false, page: 'contact' })
+      }
+});
+
+
+//////////minimal transport end------------------------------------------------
+
 
 
 module.exports = app;

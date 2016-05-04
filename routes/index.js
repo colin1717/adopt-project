@@ -37,6 +37,12 @@ router.get('/pets', checkLoggedIn, function(req, res, next){
   res.render('pets',{title: 'View Available Pets'});
 })
 
+//trying to set up contact route
+router.get('/contact', checkLoggedIn, function(req, res, next){
+  res.render('contact', {title: 'Meet Me'});
+})
+
+
 router.get('/petProfile', checkLoggedIn, function(req, res, next){
   res.render('petProfile',{title: 'Take Me Home'});
 })
