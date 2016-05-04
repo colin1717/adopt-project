@@ -146,20 +146,27 @@ function getUserLikes(){
 }
 
 function loopThroughUserLikes(userLikes){
-  for (var i = 0; i < userLikes.length; i++){
-    var like = userLikes[i];
-    populateTableSection(like);
+  for (var i = 0; i < userLikes.length; i+=2){
+    var likeLeft = userLikes[i];
+    var likeRight = userLikes[i+1];
+    populateTableSection(likeLeft, likeRight);
   }
 }
 
-function populateTableSection(like){
-  var petName = like.petName;
-  //var petGender = like.petGender;
-  var petAge = like.petAge;
-  var petPhoto = like.petPhoto;
-  var petDescription = like.petDescription;
+function populateTableSection(likeLeft, likeRight){
+  var petNameLeft = likeLeft.petName;
+  //var petGenderLeft = like.petGender;
+  var petAgeLeft = likeLeft.petAge;
+  var petPhotoLeft = likeLeft.petPhoto;
+  var petDescriptionLeft = likeLeft.petDescription;
 
-  $('#table').prepend('<tr><td colspan="6" rowspan="" headers=""><div class="liked-pet-info"><div class="liked-info"><p class="liked-pet-name">' + petName +'</p><p class="liked-pet-gender"></p><p class="liked-pet-age">' + petAge + '</p></div><img src="' + petPhoto + '" alt="" align="center"><div class="likedpet-description">' + petDescription + '</div></div></td><td colspan="6" rowspan="" headers=""><div class="liked-pet-info"><div class="liked-info"><p class="liked-pet-name">' + petName +'</p><p class="liked-pet-gender"></p><p class="liked-pet-age">' + petAge + '</p></div><img src="' + petPhoto + '" alt="" align="center"><div class="likedpet-description">' + petDescription + '</div></div></td></tr>');
+  var petNameRight = likeRight.petName;
+  //var petGenderRight = likeRight.petGender;
+  var petAgeRight = likeRight.petAge;
+  var petPhotoRight = likeRight.petPhoto;
+  var petDescriptionRight = likeRight.petDescription;
+
+  $('#table').append('<tr><td colspan="6" rowspan="" headers=""><div class="liked-pet-info"><div class="liked-info"><p class="liked-pet-name"> ' + petNameLeft +' </p><p class="liked-pet-gender"></p><p class="liked-pet-age"> ' + petAgeLeft + ' </p></div><img src="' + petPhotoLeft + '" alt="" align="center"><div class="likedpet-description">' + petDescriptionLeft + '</div></div></td><td colspan="6" rowspan="" headers=""><div class="liked-pet-info"><div class="liked-info"><p class="liked-pet-name"> ' + petNameRight +' </p><p class="liked-pet-gender"></p><p class="liked-pet-age"> ' + petAgeRight + ' </p></div><img src="' + petPhotoRight + '" alt="" align="center"><div class="likedpet-description">' + petDescriptionRight + '</div></div></td></tr>');
 }
 
 function populateTable(){

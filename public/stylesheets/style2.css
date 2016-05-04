@@ -223,6 +223,8 @@ display: visible;
 }
 #liked-pets td{
     padding: 40px;
+    width: 550px;
+    vertical-align: text-top;
 }
 .liked-pet-name {
   font-family: 'Oswald', sans-serif;
