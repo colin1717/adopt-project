@@ -10,12 +10,17 @@ h2{
   color:white;
   text-transform: uppercase;
 }
+#main{
+  width:28%;
+  margin:auto;
+}
 #petNameInfo {
   font-family: 'Oswald', sans-serif;
   font-size: 24px;
-  display: inline;
   line-height: 30px;
   text-transform: uppercase;
+  margin: auto;
+  display: inline;
 }
 #pet-name {
   font-family: 'Oswald', sans-serif;
@@ -30,6 +35,7 @@ h2{
 }
 #pet-gender {
   display: inline;
+  text-align: right;
 }
 #display-liked {
   display: inline;
@@ -42,41 +48,37 @@ h2{
   display: inline;
 }
 #pet-description {
-  width: 580px;
   background-color: #FFF87F;
-  height: 300px;
+  height: auto;
+  width:580px;
   display: inline;
   position: absolute;
-  margin-top: 1.5%;
+  margin-top: 1.8%;
   padding: 20px;
 }
 #nextButton {
-margin-left: 56%;
-position: absolute;
-margin-top: -1%;
-padding-bottom: 20px;
+margin-left: 90%;
 }
 #nextButton:hover {
-margin-left: 56%;
-position: absolute;
-margin-top: -1%;
-padding-bottom: 20px;
 opacity:.6;
 }
 #moreInfo{
+  position: relative;
+  display: inline;
   font-size: 18px;
-  text-decoration:underline;
-  margin-left: 33%;
-  text-align: left;
-  margin-bottom: 25px;
+  text-decoration: underline;
+  margin-left: 78%;
 }
 #moreInfo:hover{
   background: #FFF87F;
 }
+#below-photo{
+  margin-top: -5%;
+}
 #menu{
-  padding-bottom: 20px;
+  padding-bottom: 10px;
   margin-right: 5%;
-  margin-top: 5%;
+  margin-top: 2%;
 }
 #menu li{
   list-style: none;
@@ -87,24 +89,22 @@ opacity:.6;
   text-align: right;
   text-decoration: underline;
 }
-.pet0 img {
+#petPhoto{
   display: block;
-  height: 200px;
-  padding: 20px 0px 10px 0px;
-  margin-left: 0;
-  min-width:200px;
+  padding: 20px;
+}
+#petPhoto img{
+  display: block;
+  width: 300px;
 
 }
 .pet0{
-  margin-top: 5%;
-  margin-left: -.5%;
+  margin:auto;
 }
-.pet-info img {
+
+#container-description{
   display: inline;
-  height: 200px;
-  padding: 20px 20px 10px 20px;
-  margin-left: 0;
-  min-width:200px;
+
 }
 #info-header {
   display: block;
@@ -125,8 +125,8 @@ opacity:.6;
   border-radius: 80px;
   height: 60px;
   width: 60px;
-  margin-left: 18%;
-  margin-top: 5%;
+  margin-left: 8%;
+  margin-top: 1%;
 }
 #likeButton2:hover {
   opacity:.6;
@@ -135,29 +135,29 @@ opacity:.6;
   margin-left: 35%;
 }
 .pet-info{
-margin-left: 6%;
+margin-left: 9%;
 }
 #available-pets {
 display: visible;
 }
 #contactButton {
-  position: absolute;
-  display: inline;
-  margin-top: 13%;
-  margin-left: 75%;
-  padding-bottom: 30px;
+  position: relative;
+  margin-left: 76%;
 }
 #contactButton p{
-  margin-left: -40px;
+  margin-left: -50px;
   margin-top: -40px;
-  display: inline;
   padding-right: 20px;
+  display: inline;
 }
+#contactButton:hover{
+ opacity:.6;
+}
+
 #backPetsButton {
   display: inline-block;
   margin-left: 75%;
   margin-top: -15%;
-  padding-top: 30px;
 }
 #backPetsButton p{
   margin-top: -20px;
@@ -166,11 +166,12 @@ display: visible;
 }
 #more-info{
   display: none;
+  pa
+
 }
 #contact{
   display: none;
   min-height: 80%;
-
 }
 #contact-background{
   background-color: #C2F2EF;
@@ -213,21 +214,9 @@ display: visible;
   margin-top: 2%;
   margin-bottom: 2%;
 }
-#contactSubmit{
-  display: inline;
-  margin-top: 30px;
-  padding-top: 40px;
-  margin-left: 90%;
-}
-#contactSubmit:hover{
- opacity:.6;
-}
-#contactSubmit p{
-  margin-left: -40px;
-  margin-top: -30px;
-  display: inline;
-  padding-right: 20px;
-}
+#shelter-info{
+  text-align: right;
+  }
 #liked-pets{
   display: none;
   padding: 20px;
@@ -251,11 +240,11 @@ display: visible;
 }
 .liked-pet-description {
   background-color: #FFF87F;
-  height: 300px;
   display: inline;
   position: absolute;
   margin-top: 1.5%;
   text-align: justify;
+  max-width: 600px;
 }
 .liked-pet-info img {
   display: inline;
@@ -263,4 +252,15 @@ display: visible;
   padding: 20px 20px 10px 20px;
   min-width:200px;
   margin-left: 10%;
+}
+#pet-photo img{
+  max-width: 200px;
+  padding: 20px 20px 10px 20px;
+}
+#pet-photo {
+  display: inline;
+}
+footer {
+  padding-top: 20px;
+  height: 100px;
 }
