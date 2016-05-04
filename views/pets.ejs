@@ -14,31 +14,23 @@
       </ul>
     </nav>
     <div id="available-pets">
-    <div id="nextButton"><img src="../images/black-arrow.png" height="20px"></div>
     <section id="main">
+    <div id="nextButton"><img src="../images/black-arrow.png" height="20px"></div>
 
-    <div class="petImages">
-    <!-- This div contains the pet image. Please note img src is populated by by the JavaScript dynamically -->
+
+
     <div class="pet0">
       <p id="petNameInfo"></p>
+      <div id="info-left">
       <p id="petGender"></p>
       <p id="petAge"></p>
-      <img src="" alt="" align="center">
+      </div>
+      <div id="petPhoto"></div>
     </div>
+    <div id="below-photo">
     <a id="moreInfo">More Info</a>
-    <div class="pet1">
-      <p id="petNameInfo"></p>
-      <p id="petGender"></p>
-      <p id="petAge"></p>
-      <img src="" alt="">
     </div>
-    <div class="pet2">
-      <p id="petNameInfo"></p>
-      <p id="petGender"></p>
-      <p id="petAge"></p>
-      <img src="" alt="">
-    </div>
-    </div>
+
 
     <!-- //like pet button -->
     <div id="likeButton"></div>
@@ -50,35 +42,52 @@
     </div>
     <div id="more-info">
     <div id="backPetsButton"><p>Go Back</p><img src="../images/black-arrow.png" height="20px"></div>
-    <div class="pet-info">
+  <div class="pet-info">
     <div id="info-header">
-      <p id="pet-name">Chucho</p>
-      <p id="pet-gender">F</p>
-      <p id="pet-age">M</p>
-      </div>
-      <img src="https://static.pexels.com/photos/7720/night-animal-dog-pet.jpg" alt="" align="center">
-      <div id="pet-description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</div>
+      <p id="pet-name"></p>
+      <p id="pet-gender"></p>
+      <p id="pet-age"></p>
     </div>
-    <div id="contactButton"><p>Contact Shelter</p><img src="../images/black-arrow.png" height="20px"></div>
-
-    <div id="likeButton2"></div>
-
+      <div id="pet-photo"></div>
+      <div id="pet-description"></div>
+      <div id="likeButton2"></div>
+  </div>
+      <footer>
+        <div id="contactButton"><p>Contact Shelter</p><img src="../images/black-arrow.png" height="20px"></div>
+      </footer>
     </div>
 
   <div id="contact">
     <div id="contact-background">
+    <table width="950px">
+    <tr>
+    <td >
       <h2>Meet Me</h2>
+    </td>
+    <td width="600px">
+    <div id="shelter-info">
+    <div id="shelter-name"></div>
+    <div id="shelter-address"></div>
+    <div id="shelter-location"></div>
+    <div id="shelter-phone"></div>
+    <div id="shelter-email"></div>
+    </div>
+    </td>
+    </tr>
+    </table>
+
        <form action="contact_submit">
          <input id="contact-name" value="Name"></input>
          <input id="contact-phone" value="Phone"></input>
          <input id="contact-email" value="Email"></input>
          <textarea id="contact-message" value="Message"></textarea>
-         <div id="contactSubmit"><p>Submit</p><img src="../images/black-arrow.png" height="20px"></div>
+         <div id="contactButton"><p>Submit</p><img src="../images/black-arrow.png" height="20px"></div>
        </form>
     </div>
   </div>
 
   <div id="liked-pets">
+  <a id="backToPetsButton">X</a>
   <table>
   <tr>
   <td colspan="6" rowspan="" headers="">
