@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title%></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-1.12.3.min.js" integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ=" crossorigin="anonymous"></script>
+  </head>
+  <body>
+
+  <h1>Contact Form</h1>
+
+  <div class="content">
+    <form action="/contact", name="contactus", id="contactus", method="post">
+      <fieldset>
+        <p>
+          <label for="name">Name: </label>
+          <br>
+          <input type="text", name="name",value="", id="name">
+        </p>
+        <p><label for="email">Email: </label>
+        <br>
+        <input type="text", name="email", value="", id="email">
+        </p>
+        <p>
+          <label for="message">Message: </label>
+          <br>
+          <textarea name="message" id="message" cols="30" rows="10"></textarea>
+          <p>
+            <input type="submit", name="submit", value="Send", id="submit">
+          </p>
+        </p>
+      </fieldset>
+    </form>
+  </div>
+
+  <script src='/javascripts/script.js'></script>
+  </body>
+</html>
