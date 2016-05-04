@@ -27,6 +27,7 @@ $('#backPetsButton').click(function(event){
     navigateToContentSection($('#available-pets'));
   });
 $('#contactButton').click(function(event){
+  showShelterName(petfinder);
     navigateToContentSection($('#contact'));
   });
 
@@ -42,6 +43,25 @@ function getNextPet(){
   .done(function(data, textStatus, jqXHR){
     petfinder = data.petfinder;
     populateInfo(petfinder);
+  })
+  .fail(function(data, textStatus, jqXHR){
+    console.log('getNextPet failed.  Error: ' + textStatus);
+  })
+}
+
+function showShelterName(){
+  var shelterId = petfinder.pet.shelterId.$t;
+  var url = 'http://api.petfinder.com/shelter.get?key=7fe69d8a1ef29360d4fcf36d90a09254f554a394&id='+shelterId+'&format=json';
+
+  $.ajax({
+    url: url,
+    data: {},
+    method: 'GET',
+    dataType: 'jsonp',
+  })
+  .done(function(data, textStatus, jqXHR){
+    petfinderShelter = data.petfinder;
+    populateContact(petfinderShelter);
   })
   .fail(function(data, textStatus, jqXHR){
     console.log('getNextPet failed.  Error: ' + textStatus);
@@ -71,16 +91,17 @@ function populateInfo(petfinder){
   $('#pet-photo').html("<img src='" + petfinder.pet.media.photos.photo[2].$t +"' align='center'>");
 
   //populate contact page
-  $('#shelter-name').html(petfinder.pet.shelterId.$t);
   $('#shelter-address').html(petfinder.pet.contact.address1.$t);
   $('#shelter-location').html(petfinder.pet.contact.city.$t+ ", " + petfinder.pet.contact.state.$t + ", " + petfinder.pet.contact.zip.$t);
   $('#shelter-phone').html(petfinder.pet.contact.phone.$t);
   $('#shelter-email').html(petfinder.pet.contact.email.$t);
 
-  console.log(petfinder.pet);
 }
 
-
+function populateContact(petfinderShelter){
+  //change id for name shelter
+  $('#shelter-name').html(petfinderShelter.shelter.name.$t);
+}
 
 function addNewLike(){
   event.preventDefault();
