@@ -35,9 +35,9 @@ function getNextPet(){
     for (var i = option.length - 1; i >= 0; i--) {
       var optionLists = $('<li></li>');
       var optionArrayObject = option[i];
-      var buildOptions = optionArrayObject.appendTo(optionLists);
 
-      console.log(buildOptions);
+
+
       console.log(optionArrayObject);
 
     }
