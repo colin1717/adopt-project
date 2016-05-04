@@ -86,7 +86,7 @@ function addNewLike(){
   event.preventDefault();
   var petId = petfinder.pet.id.$t;
   var petName = petfinder.pet.name.$t;
-  var petAge = petfinder.pet.age.$t;
+  var petAge = petfinder.pet.age['$t'];
   var petGender = petfinder.pet.sex.$t;
   var petPhoto = petfinder.pet.media.photos.photo[2].$t;
   var shelterId = petfinder.pet.shelterId.$t;
@@ -137,9 +137,50 @@ function getUserLikes(){
     dataType: 'json',
   })
   .done(function(data, textStatus, jqXHR){
-    console.log(data);
+    var userLikes = data;
+    loopThroughUserLikes(userLikes);
   })
   .fail(function(data, textStatus, jqXHR){
     console.log("Error GETting likes/user.  Error: " + textStatus);
   })
+}
+
+function loopThroughUserLikes(userLikes){
+  for (var i = 0; i < userLikes.length; i++){
+    var like = userLikes[i];
+    populateTableSection(like);
+  }
+}
+
+function populateTableSection(like){
+  var petName = like.petName;
+  //var petGender = like.petGender;
+  var petAge = like.petAge;
+  var petPhoto = like.petPhoto;
+  var petDescription = like.petDescription;
+
+  $('#table').prepend('<tr><td colspan="6" rowspan="" headers=""><div class="liked-pet-info"><div class="liked-info"><p class="liked-pet-name">' + petName +'</p><p class="liked-pet-gender"></p><p class="liked-pet-age">' + petAge + '</p></div><img src="' + petPhoto + '" alt="" align="center"><div class="likedpet-description">' + petDescription + '</div></div></td><td colspan="6" rowspan="" headers=""><div class="liked-pet-info"><div class="liked-info"><p class="liked-pet-name">' + petName +'</p><p class="liked-pet-gender"></p><p class="liked-pet-age">' + petAge + '</p></div><img src="' + petPhoto + '" alt="" align="center"><div class="likedpet-description">' + petDescription + '</div></div></td></tr>');
+}
+
+function populateTable(){
+ for (var i = 0; i< likedPets.length; i++) {
+   if(i % 2 === 0){
+     even.push(likedPets[i]);
+   }
+   else if (i % 2 ==! 0){
+     odd.push(likedPets[i]);
+ }
+}
+for(var i = 0; i<even.length && i< odd.length; i++ ) {
+ if (even.length%2 === 0 && odd.length%2 === 0) {
+   $('#table').append("<tr><td>" + even[i]+ "</td><td>" + odd[i] + "</td></tr>");
+   var lastOne = even[even.length-1];
+ }
+ else {
+    $('#table').append("<tr><td>" + even[i]+ "</td><td>" + odd[i] + "</td></tr>");
+    $('#table').append(lastOne);
+   var lastOne = even[even.length-1];
+   console.log(lastOne);
+ }
+ }
 }
