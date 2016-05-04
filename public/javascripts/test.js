@@ -19,3 +19,17 @@ function addNewLike(){
     console.log("Error posting like. Error: " + textStatus);
   })
 }
+
+function getUserLikes(){
+  $.ajax({
+    url: '/likes/user',
+    method: 'GET',
+    dataType: 'json',
+  })
+  .done(function(data, textStatus, jqXHR){
+    console.log(data);
+  })
+  .fail(function(data, textStatus, jqXHR){
+    console.log("Error GETting likes/user.  Error: " + textStatus);
+  })
+}

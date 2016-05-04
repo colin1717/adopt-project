@@ -39,10 +39,20 @@ function checkLoggedIn(req, res, next){
 router.post('/', checkLoggedIn, function(req, res, next) {
   var userId = req.user._id;
   var petId = req.body.petId;
+  var petName = req.body.petName;
+  var petAge = req.body.petAge;
+  var petPhoto = req.body.petPhoto;
+  var shelterId = req.body.shelterId;
+  var petDescription = req.body.petDescription;
 
   var like = new Like({
     userId: userId,
-    petId: petId
+    petId: petId,
+    petName: petName,
+    petAge: petAge,
+    petPhoto: petPhoto,
+    shelterId: shelterId,
+    petDescription: petDescription
   });
 
   like.save(function(err) {
