@@ -229,3 +229,23 @@ function populateEmptyTable() {
 function clearTable() {
   $('#table').empty();
 }
+
+function moreInfoFromUserLikes() {
+  $.ajax({
+    url: '/likes/' + likeID,
+    method: 'GET',
+    dataType: 'json'
+  })
+  .done(function(data, textStatus, jqXHR){
+    var petfinder = data.petfinder;
+    $('#pet-name').html(petfinder.pet.name['$t']);
+  $('#pet-gender').html(petfinder.pet.sex['$t']+"/");
+  $('#pet-age').html(petfinder.pet.age['$t']);
+  $('#pet-description').html(petfinder.pet.description['$t']);
+  $('#pet-photo').html("<img src='" + petfinder.pet.media.photos.photo[2].$t +"' align='center'>");
+  })
+  .fail(function(data, textStatus, jqXHR){
+    console.log('GET request to likes/:likeId failed. Error: ' + textStatus);
+  })
+
+}

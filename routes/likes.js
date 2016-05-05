@@ -4,7 +4,7 @@ var Like = require('../models/like');
 
 
 /* GET likes */
-router.get('/', checkLoggedIn, function(req, res, next){
+router.get('/', function(req, res, next){
   Like.find({}, function(err, likes){
     if (err) {
       res.status(500).send();
