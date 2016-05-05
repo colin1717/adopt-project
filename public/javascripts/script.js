@@ -202,12 +202,14 @@ function populateTableSection(likeLeft, likeRight){
   var petAgeLeft = likeLeft.petAge;
   var petPhotoLeft = likeLeft.petPhoto;
   var petDescriptionLeft = likeLeft.petDescription;
+  var petIdLeft = likeLeft.petId;
 
   var petNameRight = likeRight.petName;
   var petGenderRight = likeRight.petGender;
   var petAgeRight = likeRight.petAge;
   var petPhotoRight = likeRight.petPhoto;
   var petDescriptionRight = likeRight.petDescription;
+  var petIdRight = likeRight.petId;
 
   $('#table').append('<tr><td colspan="6" rowspan="" headers=""><div class="liked-pet-info"><div class="liked-info"><p class="liked-pet-name"> ' + petNameLeft +' </p><p class="liked-pet-gender">' + petGenderLeft + '</p><p class="liked-pet-age"> ' + petAgeLeft + ' </p></div><img src="' + petPhotoLeft + '" alt="" align="center"><div class="likedpet-description">' + petDescriptionLeft + '</div></div></td><td colspan="6" rowspan="" headers=""><div class="liked-pet-info"><div class="liked-info"><p class="liked-pet-name"> ' + petNameRight +' </p><p class="liked-pet-gender">' + petGenderRight + '</p><p class="liked-pet-age"> ' + petAgeRight + ' </p></div><img src="' + petPhotoRight + '" alt="" align="center"><div class="likedpet-description">' + petDescriptionRight + '</div></div></td></tr>');
 }
@@ -218,6 +220,7 @@ function populateFinalTableSection(lastLike){
   var petAgeLast = lastLike.petAge;
   var petPhotoLast = lastLike.petPhoto;
   var petDescriptionLast = lastLike.petDescription;
+  var petIdLast = lastLike.petId;
 
   $('#table').append('<tr><td colspan="6" rowspan="" headers=""><div class="liked-pet-info"><div class="liked-info"><p class="liked-pet-name"> ' + petNameLast +' </p><p class="liked-pet-gender">' + petGenderLast + '</p><p class="liked-pet-age"> ' + petAgeLast + ' </p></div><img src="' + petPhotoLast + '" alt="" align="center"><div class="likedpet-description">' + petDescriptionLast + '</div></div></td>')
 }
@@ -230,9 +233,9 @@ function clearTable() {
   $('#table').empty();
 }
 
-function moreInfoFromUserLikes() {
+function moreInfoFromUserLikes(likeId) {
   $.ajax({
-    url: '/likes/' + likeID,
+    url: '/likes/' + "34635275",
     method: 'GET',
     dataType: 'json'
   })
