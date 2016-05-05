@@ -146,10 +146,22 @@ function getUserLikes(){
 }
 
 function loopThroughUserLikes(userLikes){
-  for (var i = 0; i < userLikes.length; i+=2){
-    var likeLeft = userLikes[i];
-    var likeRight = userLikes[i+1];
-    populateTableSection(likeLeft, likeRight);
+  if (userLikes.length % 2 === 0) {
+    for (var i = 0; i < userLikes.length; i+=2){
+      var likeLeft = userLikes[i];
+      var likeRight = userLikes[i+1];
+      populateTableSection(likeLeft, likeRight);
+    }
+  } else {
+    //plan for the odd numbered animals here
+    console.log('odd number of liked animals');
+    for (var i = 0; i < userLikes.length - 1; i+=2){
+      var likeLeft = userLikes[i];
+      var likeRight = userLikes[i+1];
+      var lastLike = userLikes[userLikes.length - 1];
+      populateTableSection(likeLeft, likeRight);
+    }
+    populateFinalTableSection(lastLike);
   }
 }
 
@@ -169,25 +181,13 @@ function populateTableSection(likeLeft, likeRight){
   $('#table').append('<tr><td colspan="6" rowspan="" headers=""><div class="liked-pet-info"><div class="liked-info"><p class="liked-pet-name"> ' + petNameLeft +' </p><p class="liked-pet-gender"></p><p class="liked-pet-age"> ' + petAgeLeft + ' </p></div><img src="' + petPhotoLeft + '" alt="" align="center"><div class="likedpet-description">' + petDescriptionLeft + '</div></div></td><td colspan="6" rowspan="" headers=""><div class="liked-pet-info"><div class="liked-info"><p class="liked-pet-name"> ' + petNameRight +' </p><p class="liked-pet-gender"></p><p class="liked-pet-age"> ' + petAgeRight + ' </p></div><img src="' + petPhotoRight + '" alt="" align="center"><div class="likedpet-description">' + petDescriptionRight + '</div></div></td></tr>');
 }
 
-function populateTable(){
- for (var i = 0; i< likedPets.length; i++) {
-   if(i % 2 === 0){
-     even.push(likedPets[i]);
-   }
-   else if (i % 2 ==! 0){
-     odd.push(likedPets[i]);
- }
+function populateFinalTableSection(lastLike){
+  var petNameLast = lastLike.petName;
+  //var petGenderLeft = lastLike.petGender;
+  var petAgeLast = lastLike.petAge;
+  var petPhotoLast = lastLike.petPhoto;
+  var petDescriptionLast = lastLike.petDescription;
+
+  $('#table').append('<tr><td colspan="6" rowspan="" headers=""><div class="liked-pet-info"><div class="liked-info"><p class="liked-pet-name"> ' + petNameLast +' </p><p class="liked-pet-gender"></p><p class="liked-pet-age"> ' + petAgeLast + ' </p></div><img src="' + petPhotoLast + '" alt="" align="center"><div class="likedpet-description">' + petDescriptionLast + '</div></div></td>')
 }
-for(var i = 0; i<even.length && i< odd.length; i++ ) {
- if (even.length%2 === 0 && odd.length%2 === 0) {
-   $('#table').append("<tr><td>" + even[i]+ "</td><td>" + odd[i] + "</td></tr>");
-   var lastOne = even[even.length-1];
- }
- else {
-    $('#table').append("<tr><td>" + even[i]+ "</td><td>" + odd[i] + "</td></tr>");
-    $('#table').append(lastOne);
-   var lastOne = even[even.length-1];
-   console.log(lastOne);
- }
- }
-}
+
