@@ -18,6 +18,10 @@ $('#display-liked').click(function(event){
     clearTable();
     getUserLikes();
   });
+$('#likeButton2').click(function(event){
+    clearTable();
+    getUserLikes();
+})
 $('#moreInfo').click(function(event){
     navigateToContentSection($('#more-info'));
   });
@@ -167,7 +171,9 @@ function getUserLikes(){
 }
 
 function loopThroughUserLikes(userLikes){
-  if (userLikes.length % 2 === 0) {
+  if (userLikes.length < 1) {
+    populateEmptyTable();
+  } else if (userLikes.length % 2 === 0) {
     for (var i = 0; i < userLikes.length; i+=2){
       var likeLeft = userLikes[i];
       var likeRight = userLikes[i+1];
@@ -214,6 +220,10 @@ function populateFinalTableSection(lastLike){
   var petDescriptionLast = lastLike.petDescription;
 
   $('#table').append('<tr><td colspan="6" rowspan="" headers=""><div class="liked-pet-info"><div class="liked-info"><p class="liked-pet-name"> ' + petNameLast +' </p><p class="liked-pet-gender">' + petGenderLast + '</p><p class="liked-pet-age"> ' + petAgeLast + ' </p></div><img src="' + petPhotoLast + '" alt="" align="center"><div class="likedpet-description">' + petDescriptionLast + '</div></div></td>')
+}
+
+function populateEmptyTable() {
+  $('#table').append('<tr><td colspan="6" rowspan="" headers=""><div class="liked-pet-info"><div class="liked-info">This is where the pets that you\'ve like will appear.  You can come back later and access them anytime you like!</div></div></td>')
 }
 
 function clearTable() {
