@@ -110,10 +110,6 @@ opacity:.6;
   display: block;
 }
 #likeButton {
-  background-color: black;
-  border-radius: 80px;
-  height: 60px;
-  width: 60px;
   margin-left: 46%;
   margin-top: 2%;
 }
@@ -121,10 +117,6 @@ opacity:.6;
   opacity:.6;
 }
 #likeButton2 {
-  background-color: black;
-  border-radius: 80px;
-  height: 60px;
-  width: 60px;
   margin-left: 8%;
   margin-top: 1%;
 }
