@@ -20,7 +20,7 @@ $('#display-liked').click(function(event){
   });
 $('#likeButton2').click(function(event){
     clearTable();
-    getUserLikes();
+    addNewLike();
 })
 $('#moreInfo').click(function(event){
     navigateToContentSection($('#more-info'));
