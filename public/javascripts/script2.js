@@ -1,7 +1,7 @@
 
 
 var background = setInterval(changeBackground, 8000);
-var backgroundImages=["../images/background-1.jpg", "../images/background-2.jpg", "../images/background-3.jpg"];
+var backgroundImages=["../images/background-1.jpg", "../images/background-3.jpg", "../images/background-2.jpg"];
 
 function changeBackground() {
   var backgroundImage = backgroundImages.shift();
