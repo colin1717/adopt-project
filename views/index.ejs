@@ -2,68 +2,47 @@
 <html>
   <head>
     <title><%= title %></title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+   <link rel='stylesheet' href='/stylesheets/style.css' />
+   <script src="https://code.jquery.com/jquery-1.12.3.min.js" integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ=" crossorigin="anonymous"></script>
   </head>
   <body>
-
-    <div class="container">
-      <div class="jumbotron text-center">
-        <h1>Welcome, Visitor!</h1>
-      </div>
-
-      <div class="row">
-        <div class="col-md-6">
-          <div class="panel panel-success">
-            <div class="panel-heading">
-              New Here?
-            </div>
-
-            <div class="panel-body">
-              <p>Fill out the form below to create an account:</p>
-
+  <header>
+    <nav id="menu">
+      <ul>
+        <li><a id="login-link">Login</a></li>
+        <li><a id="signup-link">Signup</a></li>
+      </ul>
+    </nav>
+  </header>
+<div id="black-box">
+  <div id="forms">
+    <div id="signup-form">
+      <div class="form">
               <form action="/signup" method="post">
-                <div class="form-group">
-                  <label for="username">Username:</label>
-                  <input type="text" name="username" class="form-control">
+                <div class="form-input">
+                  <input type="text" value="username" name="username" class="form-control">
+                  <input type="password" value="password" name="password" class="form-control">
                 </div>
-
-                <div class="form-group">
-                  <label for="password">Password:</label>
-                  <input type="password" name="password" class="form-control">
+                <div class="button-container">
+                <input type="submit" value="Sign Up" class="form-button">
                 </div>
-
-                <input type="submit" value="Sign Up" class="btn btn-success">
               </form>
             </div>
-          </div>
-        </div>
-
-        <div class="col-md-6">
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              Already have an account?
-            </div>
-
-            <div class="panel-body">
-              <p>Login:</p>
-
+  </div>
+  <div id="login">
+    <div class = "form">
               <form action="/login" method="post">
-                <div class="form-group">
-                  <label for="username">Username:</label>
-                  <input type="text" name="username" class="form-control">
+              <div class="form-input">
+                  <input type="text" value="username" name="username" class="form-control">
+                  <input type="password" value="password" name="password" class="form-control">
                 </div>
-
-                <div class="form-group">
-                  <label for="password">Password:</label>
-                  <input type="password" name="password" class="form-control">
-                </div>
-
-                <input type="submit" value="Log In" class="btn btn-default">
+                <div class="button-container">
+                  <input type="submit" value="Log In" class="form-button">
+                  </div>
               </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+              </div>
+  </div>
+</div>
+<script src='/javascripts/script2.js'></script>
   </body>
 </html>

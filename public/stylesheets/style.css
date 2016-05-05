@@ -1,77 +1,72 @@
+@import url(https://fonts.googleapis.com/css?family=Oswald);
+@import url(https://fonts.googleapis.com/css?family=News+Cycle);
+
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background: url(../images/background-2.jpg) no-repeat center fixed;
+  background-size: 100% 105%;
+  font-family: 'News Cycle', sans-serif;
 }
-
+ul li{
+  list-style: none;
+  display: inline;
+  padding-right: 30px;
+  font-size: 20px;
+}
+#menu {
+    text-align: right;
+}
 a {
-  color: #00B7FF;
-}
-ul {
-  list-style: none;
-  margin-left: -40px;
-}
-
-
-.dog img {
-  height: 150px;
-}
-
-.dog {
-  padding-bottom: 20px;
-}
-
-#liked{
-
-  display: none;
-  min-height: 800px;
-  background-color: #4dde91;
   color: white;
-  padding-top: 10px
 }
-
-#liked a{
-  color:white;
-  font-size: 16px;
+a:hover{
+  text-decoration: underline;
 }
-
-#liked ul {
-  list-style: none;
-  font-size: 16px;
+#signup-form{
+  display: none;
 }
-
-#main{
-
-  display: visible;
+#login{
+  display: none;
 }
-
-button {
-  background-color: red;
-  color:white;
-  border: none;
-  border-radius: 20px
-  height:100px;
-  font-size: 16px;
-  padding: 10px;
-}
-
-button:hover {
-  background-color: red;
-  opacity: .5;
-  color:white;
-  border: none;
-  border-radius: 20px
-  height:100px;
-  font-size: 16px;
-  padding: 10px;
-}
-.liked-dog-name img{
-  height: 150px;
-}
-.liked-dog-name ul {
-  list-style: none;
-}
-#exit {
+.form {
   position: absolute;
-  margin-left: 43%;
-  font-size: 200px;
+  margin-left: 64%;
+  border: solid 5px white;
+  width: 20%;
+  height: 25%;
+  padding: 20px;
 }
+.form-input input{
+  width: 97%;
+  font-family: 'News Cycle', sans-serif;
+  font-size: 16px;
+  height: 25px;
+  border: none;
+  opacity: .8;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.form-button{
+  border: solid 4px white;
+  background-color: transparent;
+  color: white
+  height: 60px;
+  width: 90px;
+  padding: 8px;
+  color: white;
+  margin: auto;
+  font-family: 'News Cycle', sans-serif;
+  font-size: 16px;
+}
+.form-button:hover{
+background-color: white;
+opacity: .6;
+color: black;
+}
+.button-container {
+  margin: auto;
+  text-align: center;
+}
+
