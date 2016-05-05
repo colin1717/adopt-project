@@ -3,7 +3,7 @@
 
 body {
   font-family: 'News Cycle', sans-serif;
-  margin:8%;
+  margin:5% 8% 5% 8%;
 }
 h2{
   font-family: 'Oswald', sans-serif;
@@ -12,7 +12,7 @@ h2{
   text-transform: uppercase;
 }
 #main{
-  width:28%;
+  width:100%;
   margin:auto;
 }
 #petNameInfo {
@@ -59,24 +59,27 @@ h2{
   float: right;
 }
 #nextButton {
-margin-left: 90%;
+margin-left: 87%;
 }
 #nextButton:hover {
 opacity:.6;
+}
+#below-photo {
+  display: flex;
+  justify-content: flex-end;
+  width:68%;
 }
 #moreInfo{
   position: relative;
   display: inline;
   font-size: 18px;
   text-decoration: underline;
-  margin-left: 78%;
+  margin-top: 2%;
 }
 #moreInfo:hover{
   background: #FFF87F;
 }
-#below-photo{
-  margin-top: -5%;
-}
+
 #menu{
   padding-bottom: 10px;
   margin-right: 1%;
@@ -93,28 +96,37 @@ opacity:.6;
 }
 #petPhoto{
   display: block;
-  width: 40%;
+  width:100%;
+  margin:auto;
 }
 #petPhoto img{
   display: block;
   width: 100%;
   margin: auto;
+  padding-top: 4%;
 
 }
 .pet0{
   margin:auto;
+  width:36%;
 }
 
 #container-description{
   display: inline;
 
 }
+#info-left{
+  display:inline;
+}
 #info-header {
   display: block;
 }
 #likeButton {
-  margin-left: 46%;
+  display: flex;
   margin-top: 2%;
+}
+#likeButton img{
+ margin: auto;
 }
 #likeButton:hover {
   opacity:.6;
@@ -295,6 +307,15 @@ body{
 }
 #likeButton2:hover {
   opacity:.6;
+}
+.pet0{
+  margin:auto;
+  width:60%;
+}
+#below-photo {
+  display: flex;
+  justify-content: flex-end;
+  width:80%;
 }
 }
 
