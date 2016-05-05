@@ -40,6 +40,7 @@ router.post('/', checkLoggedIn, function(req, res, next) {
   var userId = req.user._id;
   var petId = req.body.petId;
   var petName = req.body.petName;
+  var petGender = req.body.petGender;
   var petAge = req.body.petAge;
   var petPhoto = req.body.petPhoto;
   var shelterId = req.body.shelterId;
@@ -49,6 +50,7 @@ router.post('/', checkLoggedIn, function(req, res, next) {
     userId: userId,
     petId: petId,
     petName: petName,
+    petGender: petGender,
     petAge: petAge,
     petPhoto: petPhoto,
     shelterId: shelterId,
