@@ -54,6 +54,24 @@ function getNextPet(){
   })
 }
 
+function contactShelter(petfinder){
+  var pet = petfinder.pet.name.$t;
+  var email = petfinder.pet.contact.email.$t;
+  var mailTo = "mailto:" + email;
+  var petId = petfinder.pet.id.$t;
+  var subject = "I'm%20interested%20in%20finding%20out%20more%20about%20" + pet +"!";
+  var message = "I%20am%20interested%20in%20finding%20out%20more%20about%20your%20adoption%20process%20I%20saw%20" + pet + "on%20the%20Take%20Me%20Home%20app%20Pet%20ID%20is%20"+petId+"%20";
+  var linkMail = mailTo + "?" + "subject=" + subject + "&amp;body=" + message;
+
+
+  $('#shelterContact').find('a').attr('action', linkMail);
+  console.log(linkMail);
+};
+
+/*$("#shelterContact").click(function(){
+  contactShelter();
+});*/
+
 function showShelterName(){
   var shelterId = petfinder.pet.shelterId.$t;
   var url = 'http://api.petfinder.com/shelter.get?key=7fe69d8a1ef29360d4fcf36d90a09254f554a394&id='+shelterId+'&format=json';
@@ -229,3 +247,4 @@ function populateEmptyTable() {
 function clearTable() {
   $('#table').empty();
 }
+
