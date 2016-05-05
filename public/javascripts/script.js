@@ -15,6 +15,7 @@ $('#likeButton').click(function(){
 
 $('#display-liked').click(function(event){
     navigateToContentSection($('#liked-pets'));
+    clearTable();
     getUserLikes();
   });
 $('#moreInfo').click(function(event){
@@ -172,7 +173,7 @@ function loopThroughUserLikes(userLikes){
       var likeRight = userLikes[i+1];
       populateTableSection(likeLeft, likeRight);
     }
-  } else {
+  } else if (userLikes.length > 2) {
     //plan for the odd numbered animals here
     console.log('odd number of liked animals');
     for (var i = 0; i < userLikes.length - 1; i+=2){
@@ -181,6 +182,10 @@ function loopThroughUserLikes(userLikes){
       var lastLike = userLikes[userLikes.length - 1];
       populateTableSection(likeLeft, likeRight);
     }
+    populateFinalTableSection(lastLike);
+  } else {
+    console.log('You have one like');
+    var lastLike = userLikes[userLikes.length - 1];
     populateFinalTableSection(lastLike);
   }
 }
@@ -211,3 +216,6 @@ function populateFinalTableSection(lastLike){
   $('#table').append('<tr><td colspan="6" rowspan="" headers=""><div class="liked-pet-info"><div class="liked-info"><p class="liked-pet-name"> ' + petNameLast +' </p><p class="liked-pet-gender">' + petGenderLast + '</p><p class="liked-pet-age"> ' + petAgeLast + ' </p></div><img src="' + petPhotoLast + '" alt="" align="center"><div class="likedpet-description">' + petDescriptionLast + '</div></div></td>')
 }
 
+function clearTable() {
+  $('#table').empty();
+}
