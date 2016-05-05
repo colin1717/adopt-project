@@ -29,6 +29,7 @@ h2{
   display: inline;
   line-height: 30px;
   text-transform: uppercase;
+  margin-left: 2%;
 }
 #petGender {
   display: inline;
@@ -53,6 +54,7 @@ h2{
   width:65%;
   display: inline;
   padding: 3%;
+  margin-top: 1.8%;
   min-height: 30%;
   float: right;
 }
@@ -118,7 +120,7 @@ opacity:.6;
   opacity:.6;
 }
 #likeButton2 {
-  margin-left: 8%;
+  margin-left: 10%;
   margin-top: 1%;
 }
 #likeButton2:hover {
@@ -245,7 +247,7 @@ display: visible;
 }
 #pet-photo img{
   max-width: 25%;
-  padding: 1%;
+  padding: 2%;
 }
 #pet-photo {
   display: inline;
