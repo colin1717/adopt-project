@@ -107,8 +107,8 @@ function addNewLike(){
   event.preventDefault();
   var petId = petfinder.pet.id.$t;
   var petName = petfinder.pet.name.$t;
-  var petAge = petfinder.pet.age.$t;
-  var petGender = petfinder.pet.sex.$t;
+  var petAge = petfinder.pet.age['$t'];
+  var petGender = petfinder.pet.sex['$t'];
   var petPhoto = petfinder.pet.media.photos.photo[2].$t;
   var shelterId = petfinder.pet.shelterId.$t;
   var petDescription = petfinder.pet.description.$t;
@@ -122,8 +122,7 @@ function addNewLike(){
     shelterId: shelterId,
     petDescription: petDescription
   }
-  console.log(newLike.petId);
-  console.log(newLike);
+  console.log(newLike.petGender);
 
   $.ajax({
     url: '/likes',
@@ -158,9 +157,57 @@ function getUserLikes(){
     dataType: 'json',
   })
   .done(function(data, textStatus, jqXHR){
-    console.log(data);
+    var userLikes = data;
+    loopThroughUserLikes(userLikes);
   })
   .fail(function(data, textStatus, jqXHR){
     console.log("Error GETting likes/user.  Error: " + textStatus);
   })
 }
+
+function loopThroughUserLikes(userLikes){
+  if (userLikes.length % 2 === 0) {
+    for (var i = 0; i < userLikes.length; i+=2){
+      var likeLeft = userLikes[i];
+      var likeRight = userLikes[i+1];
+      populateTableSection(likeLeft, likeRight);
+    }
+  } else {
+    //plan for the odd numbered animals here
+    console.log('odd number of liked animals');
+    for (var i = 0; i < userLikes.length - 1; i+=2){
+      var likeLeft = userLikes[i];
+      var likeRight = userLikes[i+1];
+      var lastLike = userLikes[userLikes.length - 1];
+      populateTableSection(likeLeft, likeRight);
+    }
+    populateFinalTableSection(lastLike);
+  }
+}
+
+function populateTableSection(likeLeft, likeRight){
+  var petNameLeft = likeLeft.petName;
+  var petGenderLeft = likeLeft.petGender;
+  var petAgeLeft = likeLeft.petAge;
+  var petPhotoLeft = likeLeft.petPhoto;
+  var petDescriptionLeft = likeLeft.petDescription;
+
+  var petNameRight = likeRight.petName;
+  var petGenderRight = likeRight.petGender;
+  var petAgeRight = likeRight.petAge;
+  var petPhotoRight = likeRight.petPhoto;
+  var petDescriptionRight = likeRight.petDescription;
+
+  $('#table').append('<tr><td colspan="6" rowspan="" headers=""><div class="liked-pet-info"><div class="liked-info"><p class="liked-pet-name"> ' + petNameLeft +' </p><p class="liked-pet-gender">' + petGenderLeft + '</p><p class="liked-pet-age"> ' + petAgeLeft + ' </p></div><img src="' + petPhotoLeft + '" alt="" align="center"><div class="likedpet-description">' + petDescriptionLeft + '</div></div></td><td colspan="6" rowspan="" headers=""><div class="liked-pet-info"><div class="liked-info"><p class="liked-pet-name"> ' + petNameRight +' </p><p class="liked-pet-gender">' + petGenderRight + '</p><p class="liked-pet-age"> ' + petAgeRight + ' </p></div><img src="' + petPhotoRight + '" alt="" align="center"><div class="likedpet-description">' + petDescriptionRight + '</div></div></td></tr>');
+}
+
+function populateFinalTableSection(lastLike){
+  var petNameLast = lastLike.petName;
+  var petGenderLast = lastLike.petGender;
+  var petAgeLast = lastLike.petAge;
+  var petPhotoLast = lastLike.petPhoto;
+  var petDescriptionLast = lastLike.petDescription;
+
+  $('#table').append('<tr><td colspan="6" rowspan="" headers=""><div class="liked-pet-info"><div class="liked-info"><p class="liked-pet-name"> ' + petNameLast +' </p><p class="liked-pet-gender">' + petGenderLast + '</p><p class="liked-pet-age"> ' + petAgeLast + ' </p></div><img src="' + petPhotoLast + '" alt="" align="center"><div class="likedpet-description">' + petDescriptionLast + '</div></div></td>')
+}
+
