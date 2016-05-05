@@ -5,7 +5,7 @@ var passport = require('passport');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'CatDog' });
+  res.render('index', { title: 'Take Me Home' });
 });
 
 router.post('/signup', function(req, res, next) {
