@@ -3,6 +3,7 @@
 
 body {
   font-family: 'News Cycle', sans-serif;
+  margin:8%;
 }
 h2{
   font-family: 'Oswald', sans-serif;
@@ -50,11 +51,12 @@ h2{
 #pet-description {
   background-color: #FFF87F;
   height: auto;
-  width:580px;
+  width:65%;
   display: inline;
-  position: absolute;
+  padding: 3%;
   margin-top: 1.8%;
-  padding: 20px;
+  min-height: 30%;
+  float: right;
 }
 #nextButton {
 margin-left: 90%;
@@ -77,7 +79,7 @@ opacity:.6;
 }
 #menu{
   padding-bottom: 10px;
-  margin-right: 5%;
+  margin-right: 1%;
   margin-top: 2%;
 }
 #menu li{
@@ -91,11 +93,12 @@ opacity:.6;
 }
 #petPhoto{
   display: block;
-  padding: 20px;
+  width: 40%;
 }
 #petPhoto img{
   display: block;
-  width: 300px;
+  width: 100%;
+  margin: auto;
 
 }
 .pet0{
@@ -117,7 +120,7 @@ opacity:.6;
   opacity:.6;
 }
 #likeButton2 {
-  margin-left: 8%;
+  margin-left: 10%;
   margin-top: 1%;
 }
 #likeButton2:hover {
@@ -127,14 +130,13 @@ opacity:.6;
   margin-left: 35%;
 }
 .pet-info{
-margin-left: 9%;
+margin:auto;
 }
 #available-pets {
 display: visible;
 }
 #contactButton {
-  position: relative;
-  margin-left: 76%;
+  float: right;
 }
 #contactButton p{
   margin-left: -50px;
@@ -148,8 +150,7 @@ display: visible;
 
 #backPetsButton {
   display: inline-block;
-  margin-left: 75%;
-  margin-top: -15%;
+  float: right;
 }
 #backPetsButton p{
   margin-top: -20px;
@@ -158,7 +159,6 @@ display: visible;
 }
 #more-info{
   display: none;
-  pa
 
 }
 #contact{
@@ -248,13 +248,53 @@ display: visible;
   margin-left: 10%;
 }
 #pet-photo img{
-  max-width: 200px;
-  padding: 20px 20px 10px 20px;
+  max-width: 25%;
+  padding: 2%;
 }
 #pet-photo {
   display: inline;
 }
 footer {
+  clear: both;
   padding-top: 20px;
   height: 100px;
 }
+@media (max-width: 700px) {
+body{
+  margin: 5%;
+}
+#pet-description {
+  background-color: #FFF87F;
+  height: auto;
+  width:93%;
+  padding: 3%;
+  min-height: 30%;
+  margin-top: 20%;
+}
+#pet-photo img{
+  display: block;
+  margin: auto;
+  padding-top: 3%;
+  max-width: 100%;
+  max-height: 20%;
+}
+#pet-photo {
+  display: block;
+  width: 100%;
+}
+#likeButton2 {
+  position: absolute;
+  display: block;
+  width: 93%;
+  margin: auto;
+}
+#likeButton2 img{
+  display: block;
+  margin: auto;
+  padding-top: 3%;
+}
+#likeButton2:hover {
+  opacity:.6;
+}
+}
+
