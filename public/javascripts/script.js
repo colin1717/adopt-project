@@ -64,7 +64,7 @@ function contactShelter(petfinder){
   var linkMail = mailTo + "?" + "subject=" + subject + "&amp;body=" + message;
 
 
-  $('#shelterContact').find('a').attr('action', linkMail);
+  $('#shelterContact').find('form').attr('action', linkMail);
   console.log(linkMail);
 };
 
@@ -117,8 +117,10 @@ function populateInfo(petfinder){
   $('#shelter-address').html(petfinder.pet.contact.address1.$t);
   $('#shelter-location').html(petfinder.pet.contact.city.$t+ ", " + petfinder.pet.contact.state.$t + ", " + petfinder.pet.contact.zip.$t);
   $('#shelter-phone').html(petfinder.pet.contact.phone.$t);
-  $('#shelter-email').html(petfinder.pet.contact.email.$t);
+  $('#shelter-email').html("<a href='mailto:"+ petfinder.pet.contact.email.$t+"'></a>");
 
+  ////////// THIS WORKS AND IF YOU TOUCH IT YOU WILL BLOW UP THE ENTIRE APP... SO DON'T TOUCH IT///
+  $('#contactEmail').html("<a href='mailto:"+ petfinder.pet.contact.email.$t+"'>Contact Shelter</a>");
 }
 
 function populateContact(petfinderShelter){
