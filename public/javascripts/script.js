@@ -202,14 +202,22 @@ function populateTableSection(likeLeft, likeRight){
   var petAgeLeft = likeLeft.petAge;
   var petPhotoLeft = likeLeft.petPhoto;
   var petDescriptionLeft = likeLeft.petDescription;
+  var petIdLeft = likeLeft._id;
 
   var petNameRight = likeRight.petName;
   var petGenderRight = likeRight.petGender;
   var petAgeRight = likeRight.petAge;
   var petPhotoRight = likeRight.petPhoto;
   var petDescriptionRight = likeRight.petDescription;
+  var petIdRight = likeRight._id;
 
-  $('#table').append('<tr><td colspan="6" rowspan="" headers=""><div class="liked-pet-info"><div class="liked-info"><p class="liked-pet-name"> ' + petNameLeft +' </p><p class="liked-pet-gender">' + petGenderLeft + '</p><p class="liked-pet-age"> ' + petAgeLeft + ' </p></div><img src="' + petPhotoLeft + '" alt="" align="center"><div class="likedpet-description">' + petDescriptionLeft + '</div></div></td><td colspan="6" rowspan="" headers=""><div class="liked-pet-info"><div class="liked-info"><p class="liked-pet-name"> ' + petNameRight +' </p><p class="liked-pet-gender">' + petGenderRight + '</p><p class="liked-pet-age"> ' + petAgeRight + ' </p></div><img src="' + petPhotoRight + '" alt="" align="center"><div class="likedpet-description">' + petDescriptionRight + '</div></div></td></tr>');
+
+  //building out complete table row of 2 columns. Inserting above variables to pull info from the petfinder info.  Also using petId to create unique div Ids for each animal.
+  $('#table').append('<tr><td colspan="6" rowspan="" headers=""><div data-id="' + petIdRight + '" class="liked-pet-info"><div class="liked-info"><p class="liked-pet-name"> ' + petNameLeft +' </p><p class="liked-pet-gender">' + petGenderLeft + '</p><p class="liked-pet-age"> ' + petAgeLeft + ' </p></div><img src="' + petPhotoLeft + '" alt="" align="center"><div class="likedpet-description">' + petDescriptionLeft + '</div></div></td><td colspan="6" rowspan="" headers=""><div data-id="' + petIdRight + '" class="liked-pet-info"><div class="liked-info"><p class="liked-pet-name"> ' + petNameRight +' </p><p class="liked-pet-gender">' + petGenderRight + '</p><p class="liked-pet-age"> ' + petAgeRight + ' </p></div><img src="' + petPhotoRight + '" alt="" align="center"><div class="likedpet-description">' + petDescriptionRight + '</div></div></td></tr>');
+
+  //generate event handlers
+  makeClickEventForDiv(petIdLeft);
+  makeClickEventForDiv(petIdRight)
 }
 
 function populateFinalTableSection(lastLike){
@@ -218,8 +226,11 @@ function populateFinalTableSection(lastLike){
   var petAgeLast = lastLike.petAge;
   var petPhotoLast = lastLike.petPhoto;
   var petDescriptionLast = lastLike.petDescription;
+  var petIdLast = lastLike._id;
 
-  $('#table').append('<tr><td colspan="6" rowspan="" headers=""><div class="liked-pet-info"><div class="liked-info"><p class="liked-pet-name"> ' + petNameLast +' </p><p class="liked-pet-gender">' + petGenderLast + '</p><p class="liked-pet-age"> ' + petAgeLast + ' </p></div><img src="' + petPhotoLast + '" alt="" align="center"><div class="likedpet-description">' + petDescriptionLast + '</div></div></td>')
+  $('#table').append('<tr><td colspan="6" rowspan="" headers=""><div data-id="' + petIdLast + '" class="liked-pet-info"><div class="liked-info"><p class="liked-pet-name"> ' + petNameLast +' </p><p class="liked-pet-gender">' + petGenderLast + '</p><p class="liked-pet-age"> ' + petAgeLast + ' </p></div><img src="' + petPhotoLast + '" alt="" align="center"><div class="likedpet-description">' + petDescriptionLast + '</div></div></td>')
+
+  makeClickEventForDiv(petIdLast);
 }
 
 function populateEmptyTable() {
@@ -228,4 +239,32 @@ function populateEmptyTable() {
 
 function clearTable() {
   $('#table').empty();
+}
+
+function moreInfoFromUserLikes(likeId) {
+  $.ajax({
+    url: '/likes/' + likeId,
+    method: 'GET',
+    dataType: 'json'
+  })
+  .done(function(data, textStatus, jqXHR){
+    var petfinder = data;
+    console.log(petfinder);
+    $('#pet-name').html(petfinder.petName['$t']);
+    $('#pet-gender').html(petfinder.petGender['$t']+"/");
+    $('#pet-age').html(petfinder.petAge['$t']);
+    $('#pet-description').html(petfinder.petDescription['$t']);
+    $('#pet-photo').html("<img src='" + petfinder.petPhoto +"' align='center'>");
+    navigateToContentSection($('#more-info'));
+  })
+  .fail(function(data, textStatus, jqXHR){
+    console.log('GET request to likes/:likeId failed. Error: ' + textStatus);
+  })
+}
+
+function makeClickEventForDiv(likedPetInfoDiv) {
+  $('.liked-pet-info').click(function(){
+    moreInfoFromUserLikes($(this).data().id);
+    console.log($(this).data());
+  })
 }
