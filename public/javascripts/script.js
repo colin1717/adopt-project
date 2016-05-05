@@ -268,3 +268,22 @@ function makeClickEventForDiv(likedPetInfoDiv) {
     console.log($(this).data());
   })
 }
+
+function showShelterName(){
+  var shelterId = petfinder.pet.shelterId.$t;
+  var url = 'http://api.petfinder.com/shelter.get?key=7fe69d8a1ef29360d4fcf36d90a09254f554a394&id='+shelterId+'&format=json';
+
+  $.ajax({
+    url: url,
+    data: {},
+    method: 'GET',
+    dataType: 'jsonp',
+  })
+  .done(function(data, textStatus, jqXHR){
+    petfinderShelter = data.petfinder;
+    populateContact(petfinderShelter);
+  })
+  .fail(function(data, textStatus, jqXHR){
+    console.log('getNextPet failed.  Error: ' + textStatus);
+  })
+}

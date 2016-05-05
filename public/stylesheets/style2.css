@@ -42,6 +42,9 @@ h2{
   display: inline;
   text-align: right;
 }
+#filters {
+  display: visible;
+}
 #petAge {
   display: inline;
 }
@@ -147,7 +150,7 @@ opacity:.6;
 margin:auto;
 }
 #available-pets {
-display: visible;
+display: none;
 }
 #contactButton {
   float: right;
