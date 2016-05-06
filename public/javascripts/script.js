@@ -101,6 +101,9 @@ function populateInfo(petfinder){
   $('#shelter-phone').html(petfinder.pet.contact.phone.$t);
   $('#shelter-email').html(petfinder.pet.contact.email.$t);
 
+  //create email link from populated contact email
+  $('#contactEmail').html("<a href='mailto:"+ petfinder.pet.contact.email.$t+"'>Contact Shelter</a>");
+
 }
 
 function populateContact(petfinderShelter){
