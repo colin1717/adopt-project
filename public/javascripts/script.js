@@ -3,9 +3,6 @@ var petfinder;
 var petCount;
 var currentPet;
 
-$(document).ready(function(){
-  // getNextPet();
-})
 
 $('#nextButton').click(function(){
   getPetFilters();
@@ -69,7 +66,7 @@ $('#exit-filters').click(function(event){
 // }
 
 function showShelterName(){
-  var shelterId = petfinder.pet.shelterId.$t;
+  var shelterId = currentPet.shelterId.$t;
   var url = 'http://api.petfinder.com/shelter.get?key=7fe69d8a1ef29360d4fcf36d90a09254f554a394&id='+shelterId+'&format=json';
 
   $.ajax({
@@ -92,27 +89,22 @@ function populateInfo(currentPet){
   $('#petGender').html(currentPet.sex.$t+"/");
   $('#petAge').html(currentPet.age.$t);
   $('#petDescription').html(currentPet.description.$t);
-  // $('#petId').html(petfinder.id['$t']);
+  $('#petId').html(currentPet.id.$t);
   $('#petPhoto').html("<img src='" + currentPet.media.photos.photo[2].$t +"'>");
-
-  // var petImageHolder = petfinder.pet.media.photos.photo[2];
-  // var petImageURL = (petImageHolder['$t']);
-  // var petImage = $('.pet0');
-  // petImage.find('img').attr('src', petImageURL);
 
   //populate moreInfo page
 
-  // $('#pet-name').html(petfinder.pet.name['$t']);
-  // $('#pet-gender').html(petfinder.pet.sex['$t']+"/");
-  // $('#pet-age').html(petfinder.pet.age['$t']);
-  // $('#pet-description').html(petfinder.pet.description['$t']);
-  // $('#pet-photo').html("<img src='" + petfinder.pet.media.photos.photo[2].$t +"' align='center'>");
+  $('#pet-name').html(currentPet.name['$t']);
+  $('#pet-gender').html(currentPet.sex['$t']+"/");
+  $('#pet-age').html(currentPet.age['$t']);
+  $('#pet-description').html(currentPet.description['$t']);
+  $('#pet-photo').html("<img src='" + currentPet.media.photos.photo[2].$t +"' align='center'>");
 
-  // //populate contact page
-  // $('#shelter-address').html(petfinder.pet.contact.address1.$t);
-  // $('#shelter-location').html(petfinder.pet.contact.city.$t+ ", " + petfinder.pet.contact.state.$t + ", " + petfinder.pet.contact.zip.$t);
-  // $('#shelter-phone').html(petfinder.pet.contact.phone.$t);
-  // $('#shelter-email').html(petfinder.pet.contact.email.$t);
+  //populate contact page
+  $('#shelter-address').html(currentPet.contact.address1.$t);
+  $('#shelter-location').html(currentPet.contact.city.$t+ ", " + currentPet.contact.state.$t + ", " + currentPet.contact.zip.$t);
+  $('#shelter-phone').html(currentPet.contact.phone.$t);
+  $('#shelter-email').html(currentPet.contact.email.$t);
   console.log('done');
 }
 
@@ -123,13 +115,13 @@ function populateContact(petfinderShelter){
 
 function addNewLike(){
   event.preventDefault();
-  var petId = petfinder.pet.id.$t;
-  var petName = petfinder.pet.name.$t;
-  var petAge = petfinder.pet.age['$t'];
-  var petGender = petfinder.pet.sex['$t'];
-  var petPhoto = petfinder.pet.media.photos.photo[2].$t;
-  var shelterId = petfinder.pet.shelterId.$t;
-  var petDescription = petfinder.pet.description.$t;
+  var petId = currentPet.id.$t;
+  var petName = currentPet.name.$t;
+  var petAge = currentPet.age['$t'];
+  var petGender = currentPet.sex['$t'];
+  var petPhoto = currentPet.media.photos.photo[2].$t;
+  var shelterId = currentPet.shelterId.$t;
+  var petDescription = currentPet.description.$t;
 
   var newLike = {
     petId: petId,
