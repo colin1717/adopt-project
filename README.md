@@ -22,7 +22,7 @@ We approached creating this app with the MVP in mind. We utilized a MOSCOW strat
          
 ## User Flow
 
-![alt tag](/takeMeHomeUF.png)
+![alt tag](/takeMeHomeUFScaled.png)
 ## Wire Frames
 
 ![alt tag](/viewAllPets.png)
