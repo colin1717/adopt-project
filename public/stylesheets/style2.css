@@ -168,6 +168,14 @@ opacity:.6;
   margin-top: 2%;
   text-align: right;
 }
+#menu a{
+  color: black;
+  text-decoration: none;
+}
+#menu a:hover{
+  color: black;
+  text-decoration: underline;
+}
 #menu li{
   list-style: none;
   text-align: right;

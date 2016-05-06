@@ -1,7 +1,7 @@
 var petfinder;
 var petCount;
 var currentPet;
-var searchMode= "query";
+var searchMode= "random";
 var location;
 
 window.onload = function() {
