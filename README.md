@@ -22,14 +22,13 @@ We approached creating this app with the MVP in mind. We utilized a MOSCOW strat
          
 ## User Flow
 
-
 ![alt tag](/takeMeHomeUF.png)
-
-
 ## Wire Frames
 
-
-
+![alt tag](/viewAllPets.png)
+![alt tag](/petProfile.png)
+![alt tag](/myLikedPets.png)
+![alt tag](/shelterInfo.png)
 ## Technologies
 
 * JavaScript - JavaScript is the programming language of HTML and the Web.
