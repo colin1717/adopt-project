@@ -18,9 +18,14 @@
       </ul>
     </nav>
     <div id="filters">
-        <a id="exit-filters">Exit</a>
-        <input type="text" id="city" value="City" required>
-        <select name="state" id="state" required>
+    <div id="filters-background">
+        <a id="exit-filters">X</a>
+        <div id="filters-headline">
+          <p><h2>Welcome !</h2> Please fill out the form and tell us what you are looking for:</p>
+        </div>
+        <div id="filters-form">
+        <input type="text" id="city" class="form-element" value="City" required>
+        <select name="state" id="state" class="form-element" required>
             <option value="">All</option>
             <option value="AL">Alabama</option>
             <option value="AK">Alaska</option>
@@ -74,7 +79,7 @@
             <option value="WI">Wisconsin</option>
             <option value="WY">Wyoming</option>
         </select>
-        Animal: <select name="animal" id="animal">
+        Animal: <select name="animal" class="form-element" id="animal">
           <option value="">All</option>
           <option value="dog">Dog</option>
           <option value="cat">Cat</option>
@@ -85,19 +90,21 @@
           <option value="reptile">Reptile</option>
           <option value="smallfurry">Smallfurry</option>
         </select>
-        Age: <select name="age" id="age">
+        Age: <select name="age"  class="form-element" id="age">
           <option value="">All</option>
           <option value="Baby">Baby</option>
           <option value="Young">Young</option>
           <option value="Adult">Adult</option>
           <option value="Senior">Senior</option>
         </select>
-        Sex:<select name="sex" id="sex">
+        Sex:<select name="sex" class="form-element" id="sex">
           <option value="">All</option>
           <option value="F">Female</option>
           <option value="M">Male</option>
         </select>
-        <button type="submit" id="filter-button"></button>
+        </div>
+        <div id="filter-button">Search</div>
+      </div>
     </div>
     <div id="available-pets">
     <section id="main">
@@ -147,6 +154,7 @@
 
   <div id="contact">
     <div id="contact-background">
+    <a id="exit-contact">X</a>
       <h2>Meet Me</h2>
       <div id="shelter-info">
         <div id="shelter-name"></div>

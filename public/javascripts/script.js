@@ -14,6 +14,7 @@ $('#likeButton').click(function(){
 
 $('#display-liked').click(function(event){
     navigateToContentSection($('#liked-pets'));
+    $('#filters').hide();
     clearTable();
     getUserLikes();
   });
@@ -35,8 +36,9 @@ $('#contactButton').click(function(event){
     navigateToContentSection($('#contact'));
   });
 $('#filter-button').click(function(event){
+  $('#filter-button').css('background-color', 'white');
+  $('#filter-button').html("<img src='../images/loading.gif'>");
   filters();
-  navigateToContentSection($('#available-pets'));
   });
 $('#filters-link').click(function(event){
   navigateToContentSection($('#filters'));
@@ -46,8 +48,12 @@ $('#exit-filters').click(function(event){
   $('#filters').hide();
   $('#available-pets').show();
   });
+$('#exit-contact').click(function(event){
+  $('#contact').hide();
+  $('#available-pets').show();
+  });
 
-// function getNextPet(){
+// function getRandomPet(){
 //   var url = 'https://api.petfinder.com/pet.getRandom?key=7fe69d8a1ef29360d4fcf36d90a09254f554a394&output=full&format=json';
 
 //   $.ajax({
@@ -218,7 +224,7 @@ function populateTableSection(likeLeft, likeRight){
 
 
   //building out complete table row of 2 columns. Inserting above variables to pull info from the petfinder info.  Also using petId to create unique div Ids for each animal.
-  $('#table').append('<tr><td colspan="6" rowspan="" headers=""><div data-id="' + petIdRight + '" class="liked-pet-info"><div class="liked-info"><p class="liked-pet-name"> ' + petNameLeft +' </p><p class="liked-pet-gender">' + petGenderLeft + '</p><p class="liked-pet-age"> ' + petAgeLeft + ' </p></div><img src="' + petPhotoLeft + '" alt="" align="center"><div class="likedpet-description">' + petDescriptionLeft + '</div></div></td><td colspan="6" rowspan="" headers=""><div data-id="' + petIdRight + '" class="liked-pet-info"><div class="liked-info"><p class="liked-pet-name"> ' + petNameRight +' </p><p class="liked-pet-gender">' + petGenderRight + '</p><p class="liked-pet-age"> ' + petAgeRight + ' </p></div><img src="' + petPhotoRight + '" alt="" align="center"><div class="likedpet-description">' + petDescriptionRight + '</div></div></td></tr>');
+  $('#table').append('<tr><td colspan="6" rowspan="" headers=""><div data-id="' + petIdRight + '" class="liked-pet-info"><div class="liked-info"><p class="liked-pet-name"> ' + petNameLeft +' </p><p class="liked-pet-gender">' + petGenderLeft + '</p><p class="liked-pet-age"> ' + petAgeLeft + ' </p></div><img src="' + petPhotoLeft + '" alt="" align="center"><a class="moreinfo">More Info</a></div></td><td colspan="6" rowspan="" headers=""><div data-id="' + petIdRight + '" class="liked-pet-info"><div class="liked-info"><p class="liked-pet-name"> ' + petNameRight +' </p><p class="liked-pet-gender">' + petGenderRight + '</p><p class="liked-pet-age"> ' + petAgeRight + ' </p></div><img src="' + petPhotoRight + '" alt="" align="center"><a class="moreinfo">More Info</a></div></td></tr>');
 
   //generate event handlers
   makeClickEventForDiv(petIdLeft);
@@ -233,7 +239,7 @@ function populateFinalTableSection(lastLike){
   var petDescriptionLast = lastLike.petDescription;
   var petIdLast = lastLike._id;
 
-  $('#table').append('<tr><td colspan="6" rowspan="" headers=""><div data-id="' + petIdLast + '" class="liked-pet-info"><div class="liked-info"><p class="liked-pet-name"> ' + petNameLast +' </p><p class="liked-pet-gender">' + petGenderLast + '</p><p class="liked-pet-age"> ' + petAgeLast + ' </p></div><img src="' + petPhotoLast + '" alt="" align="center"><div class="likedpet-description">' + petDescriptionLast + '</div></div></td>')
+  $('#table').append('<tr><td colspan="6" rowspan="" headers=""><div data-id="' + petIdLast + '" class="liked-pet-info"><div class="liked-info"><p class="liked-pet-name"> ' + petNameLast +' </p><p class="liked-pet-gender">' + petGenderLast + '</p><p class="liked-pet-age"> ' + petAgeLast + ' </p></div><img src="' + petPhotoLast + '" alt="" align="center"><a class="moreinfo">More Info</a></div></td>')
 
   makeClickEventForDiv(petIdLast);
 }
@@ -314,6 +320,11 @@ function filters(city,state,location,animal,animalInput,age,ageInput,sex,sexInpu
     petCount = 0;
     currentPet= petfinder[petCount];
     populateInfo(currentPet);
+     $('#filters').hide();
+      $('#available-pets').show();
+      $('#exit-filters').show();
+      $('#filter-button').html("Submit");
+      $('#filter-button').css('background-color', 'transparent');
     // console.log(data.petfinder.pets.pet[0].age.$t);
     console.log(url);
   })
@@ -328,3 +339,4 @@ function getPetFilters(){
   populateInfo(currentPet);
   console.log(currentPet);
 }
+
