@@ -117,8 +117,8 @@ function addNewLike(){
   event.preventDefault();
   var petId = currentPet.id.$t;
   var petName = currentPet.name.$t;
-  var petAge = currentPet.age['$t'];
-  var petGender = currentPet.sex['$t'];
+  var petAge = currentPet.age.$t;
+  var petGender = currentPet.sex.$t;
   var petPhoto = currentPet.media.photos.photo[2].$t;
   var shelterId = currentPet.shelterId.$t;
   var petDescription = currentPet.description.$t;
