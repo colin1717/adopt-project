@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-=======
+
 
 var petfinder;
 var petCount;
@@ -342,4 +341,3 @@ function getPetFilters(){
   console.log(currentPet);
 }
 
->>>>>>> 00eccffccb1f69bb5ee8f2616c635a61b6457ed4
