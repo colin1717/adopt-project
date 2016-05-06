@@ -1,5 +1,8 @@
 # Take Me Home App - Version 1.0 - May 6, 2016
 
+## Live Link to Take Me Home Application:
+   https://secret-scrubland-79329.herokuapp.com/
+
 ## Overview and Motivation
 
 The Take Me Home App was created in an effort to connect animals in rescues and shelters with potential new forever homes. After researching the applications that are currently available, a recurring theme became painfully clear. There are no pet adoption apps on the market that provide a clean, seamless interface. By creating 'Take Me Home', we hope that we can help all homeless pets find a life long love connection with their humans. 
@@ -71,8 +74,9 @@ We approached creating this app with the MVP in mind. We utilized a MOSCOW strat
                 can be found at - http://passportjs.org/docs
 
 * Passport-Local -  This module lets you authenticate using a username and password in your 
-                    Node.js applications. By plugging into Passport, local authentication can be easily and unobtrusively integrated into any application or framework that supports Connect-style middleware, including Express. 
+                    Node.js applications. By plugging into Passport, local authentication can be easily and unobtrusively integrated into any application or framework that supports Connect-style middleware, including Express.
 
+* Heroku -  Heroku is a cloud platform that lets companies build, deliver, monitor and scale apps — we're the fastest way to             go from idea to URL, bypassing all those infrastructure headaches.
 
 
 ## Installation Dependencies
