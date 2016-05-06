@@ -18,23 +18,32 @@ $('#display-liked').click(function(event){
     clearTable();
     getUserLikes();
   });
+
 $('#likeButton2').click(function(event){
     clearTable();
     addNewLike();
 })
+
 $('#moreInfo').click(function(event){
     navigateToContentSection($('#more-info'));
   });
+
 $('#backToPetsButton').click(function(event){
     navigateToContentSection($('#available-pets'));
   });
+
 $('#backPetsButton').click(function(event){
     navigateToContentSection($('#available-pets'));
   });
+
 $('#contactButton').click(function(event){
   showShelterName(petfinder);
     navigateToContentSection($('#contact'));
   });
+$('#logout').click(function(event){
+  console.log("you clicked logout");
+  logout();
+})
 
 function getNextPet(){
   var url = 'https://api.petfinder.com/pet.getRandom?key=7fe69d8a1ef29360d4fcf36d90a09254f554a394&output=full&format=json';
@@ -266,5 +275,20 @@ function makeClickEventForDiv(likedPetInfoDiv) {
   $('.liked-pet-info').click(function(){
     moreInfoFromUserLikes($(this).data().id);
     console.log($(this).data());
+  })
+}
+
+function logout(){
+  $.ajax({
+    url: '/logout',
+    method: 'GET',
+    dataType: 'jsonp'
+  })
+  .done(function(data, textStatus, jqXHR){
+    console.log("youre logged out");
+  })
+  .fail(function(data, textStatus, jqXHR){
+    console.log("Error logging out: " + textStatus);
+    document.location.reload(true);
   })
 }
