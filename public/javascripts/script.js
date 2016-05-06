@@ -19,40 +19,54 @@ $('#display-liked').click(function(event){
     clearTable();
     getUserLikes();
   });
+
 $('#likeButton2').click(function(event){
     clearTable();
     addNewLike();
 })
+
 $('#moreInfo').click(function(event){
     navigateToContentSection($('#more-info'));
   });
+
 $('#backToPetsButton').click(function(event){
     navigateToContentSection($('#available-pets'));
   });
+
 $('#backPetsButton').click(function(event){
     navigateToContentSection($('#available-pets'));
   });
+
 $('#contactButton').click(function(event){
   showShelterName(petfinder);
     navigateToContentSection($('#contact'));
   });
+
 $('#filter-button').click(function(event){
   $('#filter-button').css('background-color', 'white');
   $('#filter-button').html("<img src='../images/loading.gif'>");
   filters();
   });
+
 $('#filters-link').click(function(event){
   navigateToContentSection($('#filters'));
   });
+
 $('#exit-filters').click(function(event){
   console.log('clicked');
   $('#filters').hide();
   $('#available-pets').show();
   });
+
 $('#exit-contact').click(function(event){
   $('#contact').hide();
   $('#available-pets').show();
   });
+
+$('#logout').click(function(event){
+  console.log("You clicked logout")
+  logout();
+})
 
 // function getRandomPet(){
 //   var url = 'https://api.petfinder.com/pet.getRandom?key=7fe69d8a1ef29360d4fcf36d90a09254f554a394&output=full&format=json';
@@ -341,3 +355,19 @@ function getPetFilters(){
   console.log(currentPet);
 }
 
+function logout(){
+  console.log('logout is running');
+  $.ajax({
+    url: '/logout/',
+    data:{},
+    method: 'GET',
+    dataType: 'jsonp'
+  })
+  .done(function(data, textStatus, jqXHR){
+    console.log('ajax call success');
+  })
+  .fail(function(data, textStatus, jqXHR){
+    console.log('Logout failed. Error: ' + textStatus);
+    document.location.reload();
+  })
+}
