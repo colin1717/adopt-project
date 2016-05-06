@@ -12,15 +12,17 @@ The Take Me Home App was created in an effort to connect animals in rescues and 
 
 We approached creating this app with the MVP in mind. We utilized a MOSCOW strategy for develpment.
 
-    Mo - Must Have: What does this app absolutely HAVE TO HAVE in order to function properly
+    Mo - Must Have: What does this app absolutely HAVE TO HAVE in order to function properly?
+         This is also known as the MVP.
     S -  Should Have: This functionality is what the app should have, based on what a user
-         expects to see in a pet adoption app. This is baesd on the products that have already 
-         paved the way.. Users have seen certain features and this is their "norm".
-    Co - Could Have: These are features that we could have. These are the "bells and whistles"
-         features that could be added to increase the WOW factor of our app. These will only be
-         implemented after the Must Haves and Should Haves are fleshed out, and solidly working.
+         expects to see in a pet adoption app. This is based on the products that have already 
+         paved the way in the market space. Users have seen certain features on similar apps,
+         so this is their "norm".
+    Co - Could Have: These are the "bells and whistles" features that could be added to increase 
+         the WOW factor of our app. These will only be implemented after the Must Haves and Should Haves 
+         are fleshed out, and solidly working.
     W -  Won't Have: Generally, these are the ideas akin to "Let's create an app that's a mash up
-         of Facebook and.. all of Google... and let's do it in a couple of days!" In otherwords, 
+         of Facebook and.. all of Google... and let's do it in a couple of days!" In other words, 
          these are features that are placed in the Ice Box. 
          
 ## User Flow
@@ -81,7 +83,8 @@ We approached creating this app with the MVP in mind. We utilized a MOSCOW strat
 * Git and GitHub - As Git is a distributed version control system, it can be used as a server out of the box. Dedicated 
                   Git server software helps, amongst other features, to add access control, display the contents of a Git repository via the web, and help managing multiple repositories.
 
-* Lucidchart - Lucidchart is an online diagramming application.
+* Lucidchart - Lucidchart is the online diagramming application that we utilized when creating our User Flows and our
+               Wire Frames.
 
 
 ## Installation Dependencies
@@ -100,12 +103,12 @@ We approached creating this app with the MVP in mind. We utilized a MOSCOW strat
 
   $ npm install ejs
 
-* MongoDB, mLab and Mongoose - We utilized Mongoose to create our User and Likes Schemas, which we 
-  stored in MongoDB. Our User Schema was utilized not only for Authentication purposes, but 
+* MongoDB, mLab and Mongoose - We utilized Mongoose to create our User and Likes Schemas,  
+  stored in our MongoDB. Our User Schema was utilized not only for Authentication purposes, but 
   also, to link users to their liked pets, via a melding of data from the User Schema and our
   petFinder API.
 
-  Please note that you will need to create an account with MongoDB at - https://www.mongodb.com/
+  Please note that you will need to create an account with MongoDB in order to utilize their services - https://www.mongodb.com/
 
   For our specific purposes, we chose mLab to host our MongoDB. You can find sign up for an account and view their Quick-Start guide at - http://docs.mlab.com/
 
@@ -140,7 +143,7 @@ The Petfinder API gives developers access to access Petfinder's database of over
 
 As a team, one of our challenges, out of the gate was with our the first API we attempted to utilize. Lack of documentation and explanation of requirements created a major hurdle, when we attempted to utilize the API. Luckily, we found the petfinder API, which has much better documentation. While the petfinder API proved to be a better solution for our app, we did encounter a challenge with the image data. Given that the petfinder API collects data from a database of over 300,000 pets and 11,000 animal welfare organizations, there was no set standard for image quality. We encountered documents containing images of varying resolution and size, which made our goal of providing a clean visual experience, a bit of a challenge. When all was said and done, we found that certain image positions in the array of objects returned, were of higher quality than others, but there was no real consistency to speak of. 
 
-Another major hurdle was learning how to navigate the team's code. It became very apparent how important readable code is. This was a valuable learning experience, early on. Luckily, our team wrote relatively clean code, so there weren't many issues.
+Another major hurdle was learning how to navigate the team's code. Throughout the development cycle of our app, it became very apparent how important readable code is. This proved to be a valuable learning experience, early on. Luckily, our team wrote relatively clean code, minimizing our potential issues.
 
 ## What's Next for Take Me Home? - Future Development Plans
    
