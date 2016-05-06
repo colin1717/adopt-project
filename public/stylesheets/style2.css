@@ -344,12 +344,23 @@ display: visible;
   text-align: justify;
   max-width: 600px;
 }
+.liked-pet-info {
+  width: 100%;
+}
 .liked-pet-info img {
   display: block;
-  height: 200px;
-  padding: 20px 20px 10px 20px;
-  min-width:200px;
-  margin-left: 10%;
+  height: 250px;
+  max-width: 400px;
+  margin:auto;
+  padding: 2%;
+}
+.info-right {
+  display: inline;
+  float: right;
+}
+.delete-pet{
+  float:right;
+  text-decoration: underline;
 }
 #pet-photo img{
   max-width: 25%;
