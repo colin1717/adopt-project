@@ -48,7 +48,7 @@ h2{
   text-align: right;
 }
 #filters {
-  display: visible;
+  display: none;
   width: 93%;
 }
 #filters-background{
@@ -62,7 +62,6 @@ h2{
   font-size: 28px;
   float: right;
   display: inline;
-  display:none;
 }
 #exit-contact {
   font-size: 28px;
@@ -230,7 +229,7 @@ opacity:.6;
 margin:auto;
 }
 #available-pets {
-display: none;
+display: visible;
 }
 #contactButton {
   float: right;
