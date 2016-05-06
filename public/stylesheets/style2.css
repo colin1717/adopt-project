@@ -48,7 +48,7 @@ h2{
   text-align: right;
 }
 #filters {
-  display: visible;
+  display: none;
   width: 93%;
 }
 #filters-background{
@@ -62,7 +62,6 @@ h2{
   font-size: 28px;
   float: right;
   display: inline;
-  display:none;
 }
 #exit-contact {
   font-size: 28px;
@@ -71,7 +70,7 @@ h2{
 }
 #filters-form{
   margin-top: 3%;
-  margin-left: 10%;
+  margin-left: 5%;
   height: 100px;
 }
 .form-element{
@@ -169,6 +168,14 @@ opacity:.6;
   margin-top: 2%;
   text-align: right;
 }
+#menu a{
+  color: black;
+  text-decoration: none;
+}
+#menu a:hover{
+  color: black;
+  text-decoration: underline;
+}
 #menu li{
   list-style: none;
   text-align: right;
@@ -230,7 +237,7 @@ opacity:.6;
 margin:auto;
 }
 #available-pets {
-display: none;
+display: visible;
 }
 #contactButton {
   float: right;
