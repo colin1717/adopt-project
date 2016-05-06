@@ -67,7 +67,6 @@ $('#logout').click(function(event){
   console.log("You clicked logout")
   logout();
 })
-
 // function getRandomPet(){
 //   var url = 'https://api.petfinder.com/pet.getRandom?key=7fe69d8a1ef29360d4fcf36d90a09254f554a394&output=full&format=json';
 
@@ -239,11 +238,13 @@ function populateTableSection(likeLeft, likeRight){
 
 
   //building out complete table row of 2 columns. Inserting above variables to pull info from the petfinder info.  Also using petId to create unique div Ids for each animal.
-  $('#table').append('<tr><td colspan="6" rowspan="" headers=""><div data-id="' + petIdRight + '" class="liked-pet-info"><div class="liked-info"><p class="liked-pet-name"> ' + petNameLeft +' </p><p class="liked-pet-gender">' + petGenderLeft + '</p><p class="liked-pet-age"> ' + petAgeLeft + ' </p></div><img src="' + petPhotoLeft + '" alt="" align="center"><a class="moreinfo">More Info</a></div></td><td colspan="6" rowspan="" headers=""><div data-id="' + petIdRight + '" class="liked-pet-info"><div class="liked-info"><p class="liked-pet-name"> ' + petNameRight +' </p><p class="liked-pet-gender">' + petGenderRight + '</p><p class="liked-pet-age"> ' + petAgeRight + ' </p></div><img src="' + petPhotoRight + '" alt="" align="center"><a class="moreinfo">More Info</a></div></td></tr>');
+  $('#table').append('<tr><td colspan="6" rowspan="" headers=""><div data-id="' + petIdLeft + '" class="liked-pet-info"><div class="liked-info"><p class="liked-pet-name"> ' + petNameLeft +' </p><p class="liked-pet-gender">' + petGenderLeft + '</p><p class="liked-pet-age"> ' + petAgeLeft + ' </p></div><img src="' + petPhotoLeft + '" alt="" align="center"></div><a class="moreinfo">More Info</a><a class="delete-pet" data-id="' + petIdLeft + ' ">Delete Pet</a></td><td colspan="6" rowspan="" headers=""><div data-id="' + petIdRight + '" class="liked-pet-info"><div class="liked-info"><p class="liked-pet-name"> ' + petNameRight +' </p><p class="liked-pet-gender">' + petGenderRight + '</p><p class="liked-pet-age"> ' + petAgeRight + ' </p></div><img src="' + petPhotoRight + '" alt="" align="center"><a class="moreinfo">More Info</a><a class="delete-pet" data-id="' + petIdRight + ' "  id="delete-pet">Delete Pet</a></div></td></tr>');
 
   //generate event handlers
   makeClickEventForDiv(petIdLeft);
-  makeClickEventForDiv(petIdRight)
+  makeClickEventForDiv(petIdRight);
+  makeClickEventForDeletePet(petIdLeft);
+  makeClickEventForDeletePet(petIdRight);
 }
 
 function populateFinalTableSection(lastLike){
@@ -254,9 +255,10 @@ function populateFinalTableSection(lastLike){
   var petDescriptionLast = lastLike.petDescription;
   var petIdLast = lastLike._id;
 
-  $('#table').append('<tr><td colspan="6" rowspan="" headers=""><div data-id="' + petIdLast + '" class="liked-pet-info"><div class="liked-info"><p class="liked-pet-name"> ' + petNameLast +' </p><p class="liked-pet-gender">' + petGenderLast + '</p><p class="liked-pet-age"> ' + petAgeLast + ' </p></div><img src="' + petPhotoLast + '" alt="" align="center"><a class="moreinfo">More Info</a></div></td>')
+  $('#table').append('<tr><td colspan="6" rowspan="" headers=""><div data-id="' + petIdLast + '" class="liked-pet-info"><div class="liked-info"><p class="liked-pet-name"> ' + petNameLast +' </p><p class="liked-pet-gender">' + petGenderLast + '</p><p class="liked-pet-age"> ' + petAgeLast + ' </p></div><img src="' + petPhotoLast + '" alt="" align="center"><a class="moreinfo">More Info</a><a class="delete-pet" data-id="' + petIdLast + ' ">Delete Pet</a></div></td>')
 
   makeClickEventForDiv(petIdLast);
+  makeClickEventForDeletePet(petIdLast);
 }
 
 function populateEmptyTable() {
@@ -292,6 +294,13 @@ function makeClickEventForDiv(likedPetInfoDiv) {
   $('.liked-pet-info').click(function(){
     moreInfoFromUserLikes($(this).data().id);
     console.log($(this).data());
+  })
+}
+
+function makeClickEventForDeletePet(likeId) {
+  $('.delete-pet').click(function(){
+    console.log("you made the click for delete event LikeiD: " + likeId )
+    deleteLikedPet($(this).data().id);
   })
 }
 
@@ -353,6 +362,23 @@ function getPetFilters(){
   currentPet= petfinder[petCount];
   populateInfo(currentPet);
   console.log(currentPet);
+}
+
+function deleteLikedPet(likeId){
+  console.log("This is the likeId inside delete liked pets: " + likeId)
+  $.ajax({
+    url: '/likes/' + likeId,
+    method: 'delete',
+    dataType: 'json'
+  })
+  .done(function(data, textStatus, jqXHR){
+    console.log('deleteLikedPet success');
+    getUserLikes();
+    document.location.reload();
+  })
+  .fail(function(data, textStatus, jqXHR){
+    console.log("delete user likes failed.  Error: " + textStatus);
+  })
 }
 
 function logout(){
