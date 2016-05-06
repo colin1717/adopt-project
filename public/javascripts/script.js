@@ -12,9 +12,11 @@ window.onload = function() {
 $('#nextButton').click(function(){
   if(searchMode === "query") {
     getPetFilters();
+    unclickLiked ()
   }
   else {
     getRandomPet();
+    unclickLiked ()
   }
 })
 
@@ -116,6 +118,7 @@ function populateInfo(currentPet){
   $('#pet-name').html(currentPet.name['$t']);
   $('#pet-gender').html(currentPet.sex['$t']+"/");
   $('#pet-age').html(currentPet.age['$t']);
+  $('#pet-description').html('No description available.');
   $('#pet-description').html(currentPet.description['$t']);
   $('#pet-photo').html("<img src='" + currentPet.media.photos.photo[2].$t +"' align='center'>");
 
@@ -123,7 +126,7 @@ function populateInfo(currentPet){
   $('#shelter-address').html(currentPet.contact.address1.$t);
   $('#shelter-location').html(currentPet.contact.city.$t+ ", " + currentPet.contact.state.$t + ", " + currentPet.contact.zip.$t);
   $('#shelter-phone').html(currentPet.contact.phone.$t);
-  $('#shelter-email').html(currentPet.contact.email.$t);
+  $('#shelter-email').html("<a href='mailto:"+ currentPet.contact.email.$t+"'>Contact Shelter</a>");
   console.log('done');
 }
 
@@ -409,4 +412,7 @@ function clickedLiked(likeButtons) {
   likeButtons.css('opacity', '.6');
   console.log('works');
 }
-
+function unclickLiked () {
+  ($('#likeButton')).css('opacity', '1');
+  console.log('works');
+}

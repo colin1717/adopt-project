@@ -68,6 +68,9 @@ h2{
   float: right;
   display: inline;
 }
+#shelter-email a{
+  color: black;
+}
 #filters-form{
   margin-top: 3%;
   margin-left: 5%;
@@ -272,7 +275,7 @@ display: visible;
 #contact-background{
   background-color: #C2F2EF;
   width: 85%;
-  height: 80%;
+  height: 85%;
   margin-left: 5%;
   padding: 30px;
 }
