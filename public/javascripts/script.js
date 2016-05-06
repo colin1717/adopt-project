@@ -1,12 +1,14 @@
 
 var petfinder;
+var petCount;
+var currentPet;
 
 $(document).ready(function(){
-  getNextPet();
+  // getNextPet();
 })
 
 $('#nextButton').click(function(){
-  getNextPet();
+  getPetFilters();
 })
 
 $('#likeButton').click(function(){
@@ -35,24 +37,36 @@ $('#contactButton').click(function(event){
   showShelterName(petfinder);
     navigateToContentSection($('#contact'));
   });
+$('#filter-button').click(function(event){
+  filters();
+  navigateToContentSection($('#available-pets'));
+  });
+$('#filters-link').click(function(event){
+  navigateToContentSection($('#filters'));
+  });
+$('#exit-filters').click(function(event){
+  console.log('clicked');
+  $('#filters').hide();
+  $('#available-pets').show();
+  });
 
-function getNextPet(){
-  var url = 'https://api.petfinder.com/pet.getRandom?key=7fe69d8a1ef29360d4fcf36d90a09254f554a394&output=full&format=json';
+// function getNextPet(){
+//   var url = 'https://api.petfinder.com/pet.getRandom?key=7fe69d8a1ef29360d4fcf36d90a09254f554a394&output=full&format=json';
 
-  $.ajax({
-    url: url+'&callback=?',
-    data: {},
-    method: 'GET',
-    dataType: 'jsonp',
-  })
-  .done(function(data, textStatus, jqXHR){
-    petfinder = data.petfinder;
-    populateInfo(petfinder);
-  })
-  .fail(function(data, textStatus, jqXHR){
-    console.log('getNextPet failed.  Error: ' + textStatus);
-  })
-}
+//   $.ajax({
+//     url: url+'&callback=?',
+//     data: {},
+//     method: 'GET',
+//     dataType: 'jsonp',
+//   })
+//   .done(function(data, textStatus, jqXHR){
+//     petfinder = data.petfinder;
+//     populateInfo(petfinder);
+//   })
+//   .fail(function(data, textStatus, jqXHR){
+//     console.log('getNextPet failed.  Error: ' + textStatus);
+//   })
+// }
 
 function showShelterName(){
   var shelterId = petfinder.pet.shelterId.$t;
@@ -73,14 +87,13 @@ function showShelterName(){
   })
 }
 
-function populateInfo(petfinder){
-  $('#petNameInfo').html(petfinder.pet.name['$t']);
-  $('#petGender').html(petfinder.pet.sex['$t']+"/");
-  $('#petAge').html(petfinder.pet.age['$t']);
-  $('#petDescription').html(petfinder.pet.description['$t']);
-  $('#petId').html(petfinder.pet.id['$t']);
-  $('#petType').html(petfinder.pet.animal['$t']);
-  $('#petPhoto').html("<img src='" + petfinder.pet.media.photos.photo[2].$t +"'>");
+function populateInfo(currentPet){
+  $('#petNameInfo').html(currentPet.name.$t);
+  $('#petGender').html(currentPet.sex.$t+"/");
+  $('#petAge').html(currentPet.age.$t);
+  $('#petDescription').html(currentPet.description.$t);
+  // $('#petId').html(petfinder.id['$t']);
+  $('#petPhoto').html("<img src='" + currentPet.media.photos.photo[2].$t +"'>");
 
   // var petImageHolder = petfinder.pet.media.photos.photo[2];
   // var petImageURL = (petImageHolder['$t']);
@@ -89,18 +102,18 @@ function populateInfo(petfinder){
 
   //populate moreInfo page
 
-  $('#pet-name').html(petfinder.pet.name['$t']);
-  $('#pet-gender').html(petfinder.pet.sex['$t']+"/");
-  $('#pet-age').html(petfinder.pet.age['$t']);
-  $('#pet-description').html(petfinder.pet.description['$t']);
-  $('#pet-photo').html("<img src='" + petfinder.pet.media.photos.photo[2].$t +"' align='center'>");
+  // $('#pet-name').html(petfinder.pet.name['$t']);
+  // $('#pet-gender').html(petfinder.pet.sex['$t']+"/");
+  // $('#pet-age').html(petfinder.pet.age['$t']);
+  // $('#pet-description').html(petfinder.pet.description['$t']);
+  // $('#pet-photo').html("<img src='" + petfinder.pet.media.photos.photo[2].$t +"' align='center'>");
 
-  //populate contact page
-  $('#shelter-address').html(petfinder.pet.contact.address1.$t);
-  $('#shelter-location').html(petfinder.pet.contact.city.$t+ ", " + petfinder.pet.contact.state.$t + ", " + petfinder.pet.contact.zip.$t);
-  $('#shelter-phone').html(petfinder.pet.contact.phone.$t);
-  $('#shelter-email').html(petfinder.pet.contact.email.$t);
-
+  // //populate contact page
+  // $('#shelter-address').html(petfinder.pet.contact.address1.$t);
+  // $('#shelter-location').html(petfinder.pet.contact.city.$t+ ", " + petfinder.pet.contact.state.$t + ", " + petfinder.pet.contact.zip.$t);
+  // $('#shelter-phone').html(petfinder.pet.contact.phone.$t);
+  // $('#shelter-email').html(petfinder.pet.contact.email.$t);
+  console.log('done');
 }
 
 function populateContact(petfinderShelter){
@@ -269,9 +282,34 @@ function makeClickEventForDiv(likedPetInfoDiv) {
   })
 }
 
-function showShelterName(){
-  var shelterId = petfinder.pet.shelterId.$t;
-  var url = 'http://api.petfinder.com/shelter.get?key=7fe69d8a1ef29360d4fcf36d90a09254f554a394&id='+shelterId+'&format=json';
+
+function filters(city,state,location,animal,animalInput,age,ageInput,sex,sexInput){
+
+      city = $('#city').val();
+      state = $('#state').val();
+      location = "&location=" + city + "+" + state;
+      animalInput = $('#animal').val();
+      animal =  "&animal=" + animalInput;
+      ageInput=$('#age').val();
+      age="&age=" + ageInput;
+      sexInput=$('#sex').val();
+      sex="&sex=" + sexInput;
+
+    if (city === "City") {
+      location = "";
+    }
+     if (animalInput === "") {
+      animal= "";
+    }
+     if (ageInput === "") {
+      age= "";
+    }
+    //  if (sexInput != true) {
+    //   sex= "";
+    // }
+
+
+  var url = 'http://api.petfinder.com/pet.find?key=7fe69d8a1ef29360d4fcf36d90a09254f554a394'+location+animal+age+sex+'&format=json&count=1000';
 
   $.ajax({
     url: url,
@@ -280,10 +318,21 @@ function showShelterName(){
     dataType: 'jsonp',
   })
   .done(function(data, textStatus, jqXHR){
-    petfinderShelter = data.petfinder;
-    populateContact(petfinderShelter);
+    petfinder = data.petfinder.pets.pet;
+    petCount = 0;
+    currentPet= petfinder[petCount];
+    populateInfo(currentPet);
+    // console.log(data.petfinder.pets.pet[0].age.$t);
+    console.log(url);
   })
   .fail(function(data, textStatus, jqXHR){
-    console.log('getNextPet failed.  Error: ' + textStatus);
+    console.log('filter failed.  Error: ' + textStatus);
   })
+}
+
+function getPetFilters(){
+  petCount++;
+  currentPet= petfinder[petCount];
+  populateInfo(currentPet);
+  console.log(currentPet);
 }
