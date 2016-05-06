@@ -136,7 +136,7 @@ The Petfinder API gives developers access to access Petfinder's database of over
 
 ## Challenges 
 
-As a team, one of our challenges out of the gate was with our the first API we attempted to utilize. Lack of documentation and explanation of requirements to utilize the API, was a major hurdle for us. Luckily, we found the petfinder API, which has much better documentation.
+As a team, one of our challenges, out of the gate was with our the first API we attempted to utilize. Lack of documentation and explanation of requirements created a major hurdle, when we attempted to utilize the API. Luckily, we found the petfinder API, which has much better documentation. While the petfinder API proved to be a better solution for our app, we did encounter a challenge with the image data. Given that the petfinder API collects data from a database of over 300,000 pets and 11,000 animal welfare organizations, there was no set standard for image quality. We encountered documents containing images of varying resolution and size, which made our goal of providing a clean visual experience, a bit of a challenge. When all was said and done, we found that certain image positions in the array of objects returned, were of higher quality than others, but there was no real consistency to speak of. 
 
 Another major hurdle was learning how to navigate the team's code. It became very apparent how important readable code is. This was a valuable learning experience, early on. Luckily, our team wrote relatively clean code, so there weren't many issues.
 
