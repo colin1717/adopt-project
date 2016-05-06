@@ -78,6 +78,9 @@ We approached creating this app with the MVP in mind. We utilized a MOSCOW strat
 
 * Heroku -  Heroku is a cloud platform that lets companies build, deliver, monitor and scale apps — we're the fastest way to             go from idea to URL, bypassing all those infrastructure headaches.
 
+* Git and GitHub - As Git is a distributed version control system, it can be used as a server out of the box. Dedicated 
+                  Git server software helps, amongst other features, to add access control, display the contents of a Git repository via the web, and help managing multiple repositories.
+
 
 ## Installation Dependencies
 
@@ -130,6 +133,22 @@ We approached creating this app with the MVP in mind. We utilized a MOSCOW strat
 This program utilizes our internal APIs, developed by Team CatDog, as well as the Petfinder API.
 
 The Petfinder API gives developers access to access Petfinder's database of over 300,000 adoptable pets and 11,000 animal welfare organizations (AWO). In addition to searching for adoptable pets on the Petfinder.com web site, you can use the API to create your own dynamic pet web sites or applications, using the same data we use on Petfinder.com.
+
+## Challenges 
+
+As a team, one of our challenges out of the gate was with our the first API we attempted to utilize. Lack of documentation and explanation of requirements to utilize the API, was a major hurdle for us. Luckily, we found the petfinder API, which has much better documentation.
+
+Another major hurdle was learning how to navigate the team's code. It became very apparent how important readable code is. This was a valuable learning experience, early on. Luckily, our team wrote relatively clean code, so there weren't many issues.
+
+## What's Next for Take Me Home? - Future Development Plans
+   
+   Where do we go from here, you might ask? Well, for starters... we'd like to include a way for users to donate to animals
+   that they would like to help, but can't adopt. The donate feature would allow users to contribute a certain amount that would be sent to the "hosting" shelter or rescue group. This contribution will pay for the animal's needs, while they're in their temporary home, such as food, medical needs or even toys (Hey, it's about the creature comforts too!). 
+   
+   We'd also like to implement a volunteer feature, where users are able to sign up and help out at shelters and rescue groups in need of some extra hands. This feature would include a calendar, where Administrators of Rescues and Shelters could post times/days they need help and volunteers could click and sign up for a shift on the designated days/times.
+   
+   Marketing, Marketing, Marketing! We'd like to provide an even better experience for our users, so that we can facilitate animals finding loving homes! NO PET LEFT BEHIND!
+   
 
 
 
