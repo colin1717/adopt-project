@@ -81,6 +81,8 @@ We approached creating this app with the MVP in mind. We utilized a MOSCOW strat
 * Git and GitHub - As Git is a distributed version control system, it can be used as a server out of the box. Dedicated 
                   Git server software helps, amongst other features, to add access control, display the contents of a Git repository via the web, and help managing multiple repositories.
 
+* Lucidchart - Lucidchart is an online diagramming application.
+
 
 ## Installation Dependencies
 
